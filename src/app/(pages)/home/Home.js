@@ -386,7 +386,7 @@ const Home = () => {
             >
               <div className="relative w-full max-w-2xl aspect-square">
                 <Image
-                  src="/images/AboutUs.jpg"
+                  src="/images/AboutUs.webp"
                   alt="About NexaSphere Tech"
                   fill
                   className="object-contain"

@@ -267,141 +267,211 @@ const About = () => {
       </section>
 
       {/* ========================================================= */}
-{/* VALUES SECTION - With Sticker */}
-{/* ========================================================= */}
-<section className="w-full bg-[#f0f4ff] py-24 relative overflow-hidden">
-  <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
-    
-    {/* Sticker - Right Side Top Corner (Bigger) */}
-    <div className="absolute -top-6 right-0 z-20 w-32 sm:w-40 md:w-48 lg:w-56">
-      <Image
-        src="/images/sidestickers2.png"
-        alt="NexaSphere Tech Values"
-        width={200}
-        height={200}
-        className="w-full h-auto object-contain"
-        priority
-      />
-    </div>
+      {/* VALUES SECTION - With Mission, Vision & Values (Professional Animations) */}
+      {/* ========================================================= */}
+      <section className="w-full bg-[#f0f4ff] py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
+          
+          {/* Sticker - Right Side Top Corner */}
+          <div className="absolute -top-6 right-0 z-20 w-32 sm:w-40 md:w-48 lg:w-56">
+            <Image
+              src="/images/sidestickers2.png"
+              alt="NexaSphere Tech Values"
+              width={200}
+              height={200}
+              className="w-full h-auto object-contain"
+              priority
+            />
+          </div>
 
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="text-center max-w-3xl mx-auto mb-16"
-    >
-      <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">Our Values</p>
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mt-3 leading-tight">
-        What <span className="text-[#193d84]">Drives</span> Us
-      </h2>
-    </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
+            <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">Our Values</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mt-3 leading-tight">
+              What <span className="text-[#193d84]">Drives</span> Us
+            </h2>
+          </motion.div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-      >
-        <div className="w-16 h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-4">
-          <Zap size={28} className="text-[#193d84]" />
+          {/* Mission & Vision Cards - Professional with Animation */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+            >
+              {/* Animated Top Border */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#193d84] via-[#2a5a9e] to-[#193d84] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
+              
+              {/* Animated Background Glow */}
+              <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#193d84]/5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-[#193d84]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#193d84] transition-colors duration-500">
+                    <span className="text-2xl group-hover:scale-110 transition-transform duration-500">🎯</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#193d84] group-hover:text-[#0b1220] transition-colors duration-500">Our Mission</h3>
+                </div>
+                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-500">
+                  To empower businesses with innovative digital solutions that drive growth, 
+                  enhance brand visibility, and create meaningful connections with their audience 
+                  through cutting-edge technology and creative excellence.
+                </p>
+                <div className="mt-4 w-12 h-0.5 bg-[#193d84]/30 rounded-full group-hover:w-20 transition-all duration-700"></div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+            >
+              {/* Animated Top Border */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#193d84] via-[#2a5a9e] to-[#193d84] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
+              
+              {/* Animated Background Glow */}
+              <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#193d84]/5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-[#193d84]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#193d84] transition-colors duration-500">
+                    <span className="text-2xl group-hover:scale-110 transition-transform duration-500">👁️</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#193d84] group-hover:text-[#0b1220] transition-colors duration-500">Our Vision</h3>
+                </div>
+                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-500">
+                  To become a global leader in digital and creative technology, recognized for 
+                  transforming ideas into impactful digital experiences that help brands thrive 
+                  in an ever-evolving digital landscape.
+                </p>
+                <div className="mt-4 w-12 h-0.5 bg-[#193d84]/30 rounded-full group-hover:w-20 transition-all duration-700"></div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Values Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="group bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+            >
+              <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#193d84] to-[#2a5a9e] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
+              
+              <div className="w-16 h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#193d84] transition-colors duration-500 group-hover:scale-110 group-hover:rotate-6">
+                <Zap size={28} className="text-[#193d84] group-hover:text-white transition-colors duration-500" />
+              </div>
+              <h4 className="text-lg font-bold text-black group-hover:text-[#193d84] transition-colors duration-500">Innovation</h4>
+              <p className="text-gray-500 text-sm mt-2 group-hover:text-gray-600 transition-colors duration-500">Pushing boundaries with cutting-edge technology and creative solutions.</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="group bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+            >
+              <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#193d84] to-[#2a5a9e] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
+              
+              <div className="w-16 h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#193d84] transition-colors duration-500 group-hover:scale-110 group-hover:rotate-6">
+                <Users size={28} className="text-[#193d84] group-hover:text-white transition-colors duration-500" />
+              </div>
+              <h4 className="text-lg font-bold text-black group-hover:text-[#193d84] transition-colors duration-500">Collaboration</h4>
+              <p className="text-gray-500 text-sm mt-2 group-hover:text-gray-600 transition-colors duration-500">Working together to achieve remarkable results for our clients.</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="group bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+            >
+              <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#193d84] to-[#2a5a9e] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
+              
+              <div className="w-16 h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#193d84] transition-colors duration-500 group-hover:scale-110 group-hover:rotate-6">
+                <Award size={28} className="text-[#193d84] group-hover:text-white transition-colors duration-500" />
+              </div>
+              <h4 className="text-lg font-bold text-black group-hover:text-[#193d84] transition-colors duration-500">Excellence</h4>
+              <p className="text-gray-500 text-sm mt-2 group-hover:text-gray-600 transition-colors duration-500">Delivering quality that exceeds expectations every single time.</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="group bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+            >
+              <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#193d84] to-[#2a5a9e] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
+              
+              <div className="w-16 h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#193d84] transition-colors duration-500 group-hover:scale-110 group-hover:rotate-6">
+                <Globe size={28} className="text-[#193d84] group-hover:text-white transition-colors duration-500" />
+              </div>
+              <h4 className="text-lg font-bold text-black group-hover:text-[#193d84] transition-colors duration-500">Global Impact</h4>
+              <p className="text-gray-500 text-sm mt-2 group-hover:text-gray-600 transition-colors duration-500">Creating digital solutions that make a difference worldwide.</p>
+            </motion.div>
+
+          </div>
         </div>
-        <h4 className="text-lg font-bold text-black">Innovation</h4>
-        <p className="text-gray-500 text-sm mt-2">Pushing boundaries with cutting-edge technology and creative solutions.</p>
-      </motion.div>
+      </section>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-      >
-        <div className="w-16 h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-4">
-          <Users size={28} className="text-[#193d84]" />
+      {/* ========================================================= */}
+      {/* CTA SECTION - White Background with Blue Text */}
+      {/* ========================================================= */}
+      <section className="w-full bg-white py-20 relative overflow-hidden border-t border-gray-100">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#193d84] leading-tight">
+                Ready to Transform Your Digital Presence?
+              </h2>
+              <p className="text-lg text-gray-600 mt-4 max-w-lg">
+                Let's discuss how NexaSphere Tech can help you achieve your business goals through innovative digital solutions.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-wrap gap-4 justify-start lg:justify-end"
+            >
+              <Link href="/contact">
+                <button className="bg-[#193d84] hover:bg-[#0b1220] text-white text-base font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105">
+                  Get in Touch
+                </button>
+              </Link>
+              <Link href="/solutions">
+                <button className="border-2 border-[#193d84] text-[#193d84] hover:bg-[#193d84] hover:text-white text-base font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:scale-105">
+                  Explore Solutions
+                </button>
+              </Link>
+            </motion.div>
+          </div>
         </div>
-        <h4 className="text-lg font-bold text-black">Collaboration</h4>
-        <p className="text-gray-500 text-sm mt-2">Working together to achieve remarkable results for our clients.</p>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-      >
-        <div className="w-16 h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-4">
-          <Award size={28} className="text-[#193d84]" />
-        </div>
-        <h4 className="text-lg font-bold text-black">Excellence</h4>
-        <p className="text-gray-500 text-sm mt-2">Delivering quality that exceeds expectations every single time.</p>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-      >
-        <div className="w-16 h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-4">
-          <Globe size={28} className="text-[#193d84]" />
-        </div>
-        <h4 className="text-lg font-bold text-black">Global Impact</h4>
-        <p className="text-gray-500 text-sm mt-2">Creating digital solutions that make a difference worldwide.</p>
-      </motion.div>
-
-    </div>
-  </div>
-</section>
-
-     {/* ========================================================= */}
-{/* CTA SECTION - White Background with Blue Text */}
-{/* ========================================================= */}
-<section className="w-full bg-white py-20 relative overflow-hidden border-t border-gray-100">
-  <div className="absolute top-0 right-0 w-96 h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
-  <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
-  
-  <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#193d84] leading-tight">
-          Ready to Transform Your Digital Presence?
-        </h2>
-        <p className="text-lg text-gray-600 mt-4 max-w-lg">
-          Let's discuss how NexaSphere Tech can help you achieve your business goals through innovative digital solutions.
-        </p>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="flex flex-wrap gap-4 justify-start lg:justify-end"
-      >
-        <Link href="/contact">
-          <button className="bg-[#193d84] hover:bg-[#0b1220] text-white text-base font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105">
-            Get in Touch
-          </button>
-        </Link>
-        <Link href="/solutions">
-          <button className="border-2 border-[#193d84] text-[#193d84] hover:bg-[#193d84] hover:text-white text-base font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:scale-105">
-            Explore Solutions
-          </button>
-        </Link>
-      </motion.div>
-    </div>
-  </div>
-</section>
+      </section>
 
     </div>
   )
