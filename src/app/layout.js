@@ -1,0 +1,33 @@
+import { Geist } from "next/font/google";
+import { Cinzel } from "next/font/google";
+import "./globals.css";
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
+
+const headingFont = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-heading",
+});
+
+const bodyFont = Geist({
+  subsets: ["latin"],
+  variable: "--font-body",
+});
+
+export const metadata = {
+  title: "NexaSphere Tech",
+  description: "Digital & Creative Technology Agency",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body className={`${headingFont.variable} ${bodyFont.variable} antialiased`}>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
+}

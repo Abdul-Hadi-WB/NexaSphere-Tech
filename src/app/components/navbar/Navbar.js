@@ -1,0 +1,243 @@
+'use client'
+
+import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ChevronDown, Menu, X, LogOut, User } from 'lucide-react'
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [isMobileOpen, setIsMobileOpen] = useState(false)
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
+  const [activeUser, setActiveUser] = useState(null)
+
+  const checkUserSession = () => {
+    const sessionUser = localStorage.getItem('nexasphere_active_user') || sessionStorage.getItem('nexasphere_active_user')
+    if (sessionUser) {
+      try {
+        setActiveUser(JSON.parse(sessionUser))
+      } catch (e) {
+        console.error("Error parsing user session:", e)
+        setActiveUser(null)
+      }
+    } else {
+      setActiveUser(null)
+    }
+  }
+
+  useEffect(() => {
+    checkUserSession()
+    window.addEventListener('authChange', checkUserSession)
+    window.addEventListener('storage', checkUserSession)
+    return () => {
+      window.removeEventListener('authChange', checkUserSession)
+      window.removeEventListener('storage', checkUserSession)
+    }
+  }, [])
+
+  const handleLogout = () => {
+    localStorage.removeItem('nexasphere_active_user')
+    sessionStorage.removeItem('nexasphere_active_user')
+    setActiveUser(null)
+    window.dispatchEvent(new Event('authChange'))
+    window.location.href = '/'
+  }
+
+  // Button styles with YOUR color theme
+  const buttonClasses =
+    "text-white font-semibold text-base px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-white/20 bg-[#193d84] hover:bg-[#0b1220]"
+
+  return (
+    <nav className="w-full fixed top-0 left-0 z-50 bg-white shadow-sm">
+      {/* Top Strip – YOUR color theme */}
+      <div className="w-full bg-[#193d84] py-2">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-end items-center">
+          <div className="flex items-center gap-3 text-sm">
+            <Link href="/referral" className="text-white font-medium hover:text-white/80 transition">
+              MAKE A REFERRAL
+            </Link>
+            <span className="text-white/50">|</span>
+
+            {activeUser ? (
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 bg-white/10 px-3 py-0.5 rounded-full text-white font-semibold text-xs sm:text-sm">
+                  <User size={14} className="text-white" />
+                  <span className="truncate max-w-[150px] sm:max-w-[200px]">{activeUser.email}</span>
+                </div>
+                <button onClick={handleLogout} title="Logout" className="text-white hover:text-red-400 transition duration-200 p-1">
+                  <LogOut size={16} />
+                </button>
+              </div>
+            ) : (
+              <Link href="/login" className="text-white font-medium hover:text-white/80 transition">
+                CLIENT LOGIN
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Main Navbar – border uses YOUR color */}
+      <div className="border-b border-[#193d84]/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="flex items-center justify-between h-20">
+
+            {/* Logo – UPDATED PATH */}
+            <Link href="/home" className="cursor-pointer group flex items-center">
+              <Image
+                src="/images/NexaSphereTech-Logo-Transparent.png"
+                alt="NexaSphere Tech Logo"
+                width={250}
+                height={110}
+                priority
+                className="w-[180px] sm:w-[220px] md:w-[250px] h-auto object-contain transition duration-500 group-hover:scale-105"
+              />
+            </Link>
+
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center gap-10 font-semibold text-black">
+              <Link href="/home" className="relative hover:text-[#193d84] transition duration-300 group">
+                Home
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#193d84] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link href="/about" className="relative hover:text-[#193d84] transition duration-300 group">
+                About
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#193d84] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+
+              {/* Services Dropdown */}
+              <div className="relative" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
+                <button className="relative flex items-center gap-1 hover:text-[#193d84] transition duration-300 group">
+                  Services
+                  <ChevronDown
+                    size={18}
+                    className={`transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#193d84]' : ''}`}
+                  />
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#193d84] transition-all duration-300 ${isOpen ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                </button>
+                <div
+                  className={`absolute top-12 left-0 w-64 transition-all duration-300 transform ${
+                    isOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible'
+                  }`}
+                >
+                  <div className="bg-white border border-[#193d84]/20 rounded-xl shadow-xl overflow-hidden">
+                    <div className="h-1 bg-[#193d84]"></div>
+                    <div className="p-2">
+                      <Link href="/web-development" className="block px-4 py-3 rounded-lg hover:bg-[#193d84] hover:text-white transition-all duration-200 transform hover:translate-x-1">
+                        <div className="font-medium">Web Development</div>
+                        <div className="text-xs text-gray-500 group-hover:text-white/80">Custom websites & apps</div>
+                      </Link>
+                      <Link href="/digital-marketing" className="block px-4 py-3 rounded-lg hover:bg-[#193d84] hover:text-white transition-all duration-200 transform hover:translate-x-1">
+                        <div className="font-medium">Digital Marketing</div>
+                        <div className="text-xs text-gray-500 group-hover:text-white/80">Grow your audience</div>
+                      </Link>
+                      <Link href="/video-editing" className="block px-4 py-3 rounded-lg hover:bg-[#193d84] hover:text-white transition-all duration-200 transform hover:translate-x-1">
+                        <div className="font-medium">Video Editing</div>
+                        <div className="text-xs text-gray-500 group-hover:text-white/80">Professional post-production</div>
+                      </Link>
+                      <Link href="/graphic-designing" className="block px-4 py-3 rounded-lg hover:bg-[#193d84] hover:text-white transition-all duration-200 transform hover:translate-x-1">
+                        <div className="font-medium">Graphic Designing</div>
+                        <div className="text-xs text-gray-500 group-hover:text-white/80">Brand identity & visuals</div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Link href="/contact" className="relative hover:text-[#193d84] transition duration-300 group">
+                Contact
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#193d84] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </div>
+
+            {/* Desktop CTA Button – YOUR colors */}
+            <div className="hidden md:flex items-center gap-4">
+              <Link href="/consultations">
+                <button className={buttonClasses}>
+                  BOOK A CONSULTATION
+                </button>
+              </Link>
+            </div>
+
+            {/* Hamburger */}
+            <div className="flex md:hidden items-center">
+              <button
+                onClick={() => setIsMobileOpen(!isMobileOpen)}
+                className="text-black hover:text-[#193d84] transition duration-300 focus:outline-none"
+              >
+                {isMobileOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden bg-white border-b border-[#193d84]/30 transition-all duration-300 ease-in-out overflow-hidden ${
+          isMobileOpen ? 'max-h-[85vh] opacity-100 visible' : 'max-h-0 opacity-0 invisible'
+        }`}
+      >
+        <div className="px-6 py-5 space-y-4 font-semibold text-black overflow-y-auto max-h-[calc(85vh-2rem)]">
+          {activeUser && (
+            <div className="bg-gray-50 border border-gray-200 p-3 rounded-xl flex items-center justify-between text-xs">
+              <span className="text-gray-600 truncate">Logged in as: <strong className="text-black">{activeUser.email}</strong></span>
+              <button onClick={handleLogout} className="text-red-600 font-bold hover:underline shrink-0 ml-2">Logout</button>
+            </div>
+          )}
+          <Link href="/home" onClick={() => setIsMobileOpen(false)} className="block hover:text-[#193d84] transition duration-300 py-1">
+            Home
+          </Link>
+          <Link href="/about" onClick={() => setIsMobileOpen(false)} className="block hover:text-[#193d84] transition duration-300 py-1">
+            About
+          </Link>
+          <div className="py-1">
+            <button
+              onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+              className="w-full flex items-center justify-between hover:text-[#193d84] transition duration-300 text-left font-semibold"
+            >
+              <span>Services</span>
+              <ChevronDown
+                size={18}
+                className={`transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180 text-[#193d84]' : ''}`}
+              />
+            </button>
+            <div
+              className={`pl-4 border-l-2 border-[#193d84]/30 transition-all duration-300 ease-in-out overflow-hidden ${
+                isMobileServicesOpen ? 'max-h-80 opacity-100 mt-3 space-y-3' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <Link href="/web-development" onClick={() => setIsMobileOpen(false)} className="block font-medium text-sm text-gray-700 hover:text-[#193d84]">
+                Web Development
+              </Link>
+              <Link href="/digital-marketing" onClick={() => setIsMobileOpen(false)} className="block font-medium text-sm text-gray-700 hover:text-[#193d84]">
+                Digital Marketing
+              </Link>
+              <Link href="/video-editing" onClick={() => setIsMobileOpen(false)} className="block font-medium text-sm text-gray-700 hover:text-[#193d84]">
+                Video Editing
+              </Link>
+              <Link href="/graphic-designing" onClick={() => setIsMobileOpen(false)} className="block font-medium text-sm text-gray-700 hover:text-[#193d84]">
+                Graphic Designing
+              </Link>
+            </div>
+          </div>
+          <Link href="/contact" onClick={() => setIsMobileOpen(false)} className="block hover:text-[#193d84] transition duration-300 py-1">
+            Contact
+          </Link>
+          <div className="border-t border-gray-100 my-2"></div>
+
+          {/* Mobile CTA Button – YOUR colors */}
+          <div className="pt-2">
+            <Link href="/consultations" onClick={() => setIsMobileOpen(false)}>
+              <button className={`${buttonClasses} w-full text-center`}>
+                BOOK A CONSULTATION
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </nav>
+  )
+}
+
+export default Navbar

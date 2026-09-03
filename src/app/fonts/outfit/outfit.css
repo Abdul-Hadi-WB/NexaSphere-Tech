@@ -1,0 +1,107 @@
+/**
+ * @license
+ * Font Family: Outfit
+ * Designed by: On Brand Investments Pty Ltd, Rodrigo Fuenzalida
+ * URL: https://www.fontshare.com/fonts/outfit
+ */
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('./Outfit-Thin.woff2') format('woff2'),
+       url('./Outfit-Thin.woff') format('woff'),
+       url('./Outfit-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('./Outfit-ExtraLight.woff2') format('woff2'),
+       url('./Outfit-ExtraLight.woff') format('woff'),
+       url('./Outfit-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('./Outfit-Light.woff2') format('woff2'),
+       url('./Outfit-Light.woff') format('woff'),
+       url('./Outfit-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('./Outfit-Regular.woff2') format('woff2'),
+       url('./Outfit-Regular.woff') format('woff'),
+       url('./Outfit-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('./Outfit-Medium.woff2') format('woff2'),
+       url('./Outfit-Medium.woff') format('woff'),
+       url('./Outfit-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('./Outfit-SemiBold.woff2') format('woff2'),
+       url('./Outfit-SemiBold.woff') format('woff'),
+       url('./Outfit-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('./Outfit-Bold.woff2') format('woff2'),
+       url('./Outfit-Bold.woff') format('woff'),
+       url('./Outfit-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('./Outfit-ExtraBold.woff2') format('woff2'),
+       url('./Outfit-ExtraBold.woff') format('woff'),
+       url('./Outfit-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('./Outfit-Black.woff2') format('woff2'),
+       url('./Outfit-Black.woff') format('woff'),
+       url('./Outfit-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* Variable Font */
+@font-face {
+  font-family: 'Outfit';
+  src: url('./Outfit-Variable.woff2') format('woff2'),
+       url('./Outfit-Variable.woff') format('woff'),
+       url('./Outfit-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
