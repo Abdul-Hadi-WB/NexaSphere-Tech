@@ -27,7 +27,7 @@ const Consultation = () => {
       name: 'Tanzeela Waheed',
       role: 'Co-Founder & Visionary',
       whatsapp: '923116176345',
-      image: '/images/tanzeela-waheed.jpg',
+      image: '/images/CO-Founder.jpeg',
       desc: 'Focused on brand positioning, high-end creative direction, and expanding strategic business avenues.'
     }
   }

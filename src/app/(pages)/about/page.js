@@ -3,7 +3,7 @@ import About from './About'
 
 // Static meta title and description
 export const metadata = {
-  title: 'CloudFlux Tech - About Us',
+  title: 'NexaSphere Tech - About Us',
   description: 'This is a static meta description for my website homepage. Explore our services and features.',
 }
 const page = () => {

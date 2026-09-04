@@ -597,7 +597,7 @@ const WebDevelopment = () => {
             <div className="flex-shrink-0 flex flex-col items-center">
               <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
                 <Image
-                  src="/images/tanzeela-waheed.jpg"
+                  src="/images/CO-Founder.jpeg"
                   alt="Tanzeela Waheed"
                   width={128}
                   height={128}

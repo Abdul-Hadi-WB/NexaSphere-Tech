@@ -30,13 +30,14 @@ const About = () => {
       {/* ========================================================= */}
       <section className="w-full bg-white py-16 md:py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="pt-0 lg:pt-4"
             >
               <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">About Us</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mt-3 leading-tight">
@@ -77,7 +78,7 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="flex items-center justify-center"
+              className="flex items-start justify-center lg:-mt-12"
             >
               <div className="relative w-full max-w-2xl aspect-square">
                 <Image
@@ -126,10 +127,13 @@ const About = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"
             >
-              <div className="w-40 h-40 rounded-full overflow-hidden bg-gray-200 mx-auto mb-6">
-                <div className="w-full h-full bg-gradient-to-br from-[#193d84]/20 to-[#193d84]/5 flex items-center justify-center">
-                  <span className="text-4xl font-bold text-[#193d84]">AH</span>
-                </div>
+              <div className="w-40 h-40 rounded-full overflow-hidden bg-gray-200 mx-auto mb-6 relative">
+                <Image
+                  src=""
+                  alt="Abdul Hadi - Founder & CEO"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-2xl font-bold text-black">Abdul Hadi</h3>
               <p className="text-[#193d84] font-semibold mt-1">Founder & CEO</p>
@@ -157,10 +161,13 @@ const About = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"
             >
-              <div className="w-40 h-40 rounded-full overflow-hidden bg-gray-200 mx-auto mb-6">
-                <div className="w-full h-full bg-gradient-to-br from-[#193d84]/20 to-[#193d84]/5 flex items-center justify-center">
-                  <span className="text-4xl font-bold text-[#193d84]">TW</span>
-                </div>
+              <div className="w-40 h-40 rounded-full overflow-hidden bg-gray-200 mx-auto mb-6 relative">
+                <Image
+                  src="/images/CO-Founder.jpeg"
+                  alt="Tanzeela Waheed - Co-Founder"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-2xl font-bold text-black">Tanzeela Waheed</h3>
               <p className="text-[#193d84] font-semibold mt-1">Co-Founder</p>
