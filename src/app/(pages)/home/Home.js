@@ -182,7 +182,7 @@ const Home = () => {
                     <ArrowRight size={16} />
                   </button>
                 </Link>
-                <Link href="/solutions">
+                <Link href="">
                   <button className="text-black hover:text-[#193d84] text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 flex items-center gap-2">
                     <Play size={16} className="text-[#193d84]" />
                     Explore Solutions
@@ -274,22 +274,26 @@ const Home = () => {
               { 
                 image: '/images/Development.jpeg', 
                 title: 'Web Development', 
-                desc: 'Custom websites and applications built with modern frameworks.' 
+                desc: 'Custom websites and applications built with modern frameworks.',
+                link: '/web-development'
               },
               { 
                 image: '/images/Graphic.jpeg', 
                 title: 'Graphic Design', 
-                desc: 'Stunning visuals and brand identities that capture attention.' 
+                desc: 'Stunning visuals and brand identities that capture attention.',
+                link: 'graphic-designing'
               },
               { 
                 image: '/images/Marketing.jpeg', 
                 title: 'Digital Marketing', 
-                desc: 'Strategic campaigns that drive traffic and generate leads.' 
+                desc: 'Strategic campaigns that drive traffic and generate leads.',
+                link: '/digital-marketing'
               },
               { 
-                image: '/images/Video.jpeg', 
+                image: '/images/editing.png', 
                 title: 'Video Editing', 
-                desc: 'Professional video content that tells your brand story.' 
+                desc: 'Professional video content that tells your brand story.',
+                link: '/video-editing'
               },
             ].map((service, index) => (
               <motion.div
@@ -300,34 +304,30 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
               >
-                {/* Image */}
-                <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-100">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#193d84]/0 via-transparent to-transparent transition-all duration-500 group-hover:from-[#193d84]/10"></div>
-                </div>
-                
-                {/* Content */}
-                <div className="p-6 transition-all duration-300 group-hover:bg-[#193d84]/[0.03]">
-                  <h3 className="text-xl font-bold text-black mb-2 transition-colors duration-300 group-hover:text-[#193d84]">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed transition-colors duration-300 group-hover:text-gray-600">
-                    {service.desc}
-                  </p>
-                  <Link 
-                    href={`/solutions/${service.title.toLowerCase().replace(/\s+/g, '-')}`} 
-                    className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-[#193d84] transition-all duration-300 group-hover:gap-3 group-hover:text-[#0b1220]"
-                  >
-                    Learn More
-                    <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
-                </div>
+                <Link href={service.link}>
+                  <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-100">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#193d84]/0 via-transparent to-transparent transition-all duration-500 group-hover:from-[#193d84]/10"></div>
+                  </div>
+                  
+                  <div className="p-6 transition-all duration-300 group-hover:bg-[#193d84]/[0.03]">
+                    <h3 className="text-xl font-bold text-black mb-2 transition-colors duration-300 group-hover:text-[#193d84]">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm leading-relaxed transition-colors duration-300 group-hover:text-gray-600">
+                      {service.desc}
+                    </p>
+                    <span className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-[#193d84] transition-all duration-300 group-hover:gap-3 group-hover:text-[#0b1220]">
+                      Learn More
+                      <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -400,130 +400,138 @@ const Home = () => {
       </section>
 
      {/* ========================================================= */}
-{/* WHY CHOOSE US SECTION - With Sticker (Left Side) */}
-{/* ========================================================= */}
-<section className="w-full bg-white py-24 relative overflow-hidden">
-  <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
-    
-    {/* Sticker - Left Side Top Corner (Bigger) */}
-    <div className="absolute -top-6 left-0 z-20 w-28 sm:w-32 md:w-40 lg:w-48">
-      <Image
-        src="/images/sidestickers.png"
-        alt="NexaSphere Tech"
-        width={160}
-        height={160}
-        className="w-full h-auto object-contain"
-        priority
-      />
-    </div>
+     {/* WHY CHOOSE US SECTION - With Sticker (Left Side) */}
+     {/* ========================================================= */}
+     <section className="w-full bg-white py-24 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
+        
+        {/* Sticker - Left Side Top Corner (Bigger) */}
+        <div className="absolute -top-6 left-0 z-20 w-28 sm:w-32 md:w-40 lg:w-48">
+          <Image
+            src="/images/sidestickers.png"
+            alt="NexaSphere Tech"
+            width={160}
+            height={160}
+            className="w-full h-auto object-contain"
+            priority
+          />
+        </div>
 
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="text-center max-w-3xl mx-auto mb-16"
-    >
-      <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">Why Choose Us</p>
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mt-3 leading-tight">
-        Why Businesses Trust <span className="text-[#193d84]">NexaSphere Tech</span>
-      </h2>
-      <p className="text-lg text-gray-500 mt-4">
-        We deliver cutting-edge digital solutions through modern web development, creative design, and data-driven marketing strategies.
-      </p>
-    </motion.div>
-
-    <div className="grid gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      {[
-        {
-          icon: Code,
-          title: "Expert Web Developers",
-          description: "Our team builds high-performance, custom-coded Next.js applications with modern UI/UX design that are fully responsive and scalable.",
-        },
-        {
-          icon: Palette,
-          title: "Creative Design Studio",
-          description: "From branding to graphic design, we create visually stunning assets that capture your brand identity and engage your audience.",
-        },
-        {
-          icon: Rocket,
-          title: "Performance Optimized",
-          description: "We deliver lightning-fast websites and applications optimized for speed, SEO, and user experience to maximize your digital impact.",
-        },
-        {
-          icon: Shield,
-          title: "Secure & Reliable",
-          description: "All our solutions are built with security best practices and deployed on Vercel for enterprise-grade reliability and global scale.",
-        },
-        {
-          icon: Zap,
-          title: "Modern Tech Stack",
-          description: "Leveraging Next.js, React, Tailwind CSS, and the latest technologies to build future-proof digital solutions that drive growth.",
-        },
-        {
-          icon: Globe,
-          title: "Global Digital Presence",
-          description: "We help businesses establish a powerful online presence with strategic marketing, SEO, and content that reaches global audiences.",
-        },
-      ].map((item, index) => (
         <motion.div
-          key={item.title}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: index * 0.08 }}
-          className="group relative rounded-2xl bg-white p-7 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl overflow-hidden cursor-pointer border border-gray-100/50"
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
         >
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#193d84]/5 via-[#2a5a9e]/5 to-transparent"></div>
-          <div className="absolute -top-16 -right-16 h-32 w-32 rounded-full opacity-0 group-hover:opacity-10 transition-all duration-700 group-hover:scale-150 bg-[#193d84]"></div>
-          <div className="absolute top-0 left-0 w-0 h-1 group-hover:w-full transition-all duration-700 bg-gradient-to-r from-[#193d84] to-[#2a5a9e]"></div>
-
-          <div className="relative z-10">
-            <div className="mb-5 inline-flex h-16 w-16 items-center justify-center rounded-2xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 bg-gradient-to-br from-[#193d84]/10 to-[#2a5a9e]/10 text-[#193d84] group-hover:bg-gradient-to-br group-hover:from-[#193d84] group-hover:to-[#2a5a9e] group-hover:text-white group-hover:shadow-lg group-hover:shadow-[#193d84]/25">
-              <item.icon size={26} className="transition-all duration-300 group-hover:scale-110" />
-            </div>
-          </div>
-
-          <h4 className="relative z-10 mb-2 text-lg font-bold text-black transition-all duration-300 group-hover:text-[#193d84]">
-            {item.title}
-          </h4>
-          <p className="relative z-10 text-sm text-gray-600 transition-all duration-300 group-hover:text-gray-700">
-            {item.description}
+          <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">Why Choose Us</p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mt-3 leading-tight">
+            Why Businesses Trust <span className="text-[#193d84]">NexaSphere Tech</span>
+          </h2>
+          <p className="text-lg text-gray-500 mt-4">
+            We deliver cutting-edge digital solutions through modern web development, creative design, and data-driven marketing strategies.
           </p>
-
-          <div className="relative z-10 mt-4 flex items-center gap-1.5 text-sm font-semibold text-[#193d84] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:gap-3">
-            <span>Learn More</span>
-            <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
-          </div>
-
-          <div className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-700 bg-gradient-to-r from-[#193d84] to-[#2a5a9e]"></div>
         </motion.div>
-      ))}
-    </div>
 
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: 0.5 }}
-      className="text-center mt-12"
-    >
-      <Link
-        href="/services"
-        className="group relative inline-flex items-center justify-center overflow-hidden bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-base px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-white/40"
-      >
-        <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></span>
-        <span className="relative z-10 flex items-center">
-          Explore Our Services
-          <span className="ml-2 text-xl transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-12">→</span>
-        </span>
-        <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <span className="absolute inset-0 rounded-full animate-ping bg-[#193d84]/30"></span>
-        </span>
-      </Link>
-    </motion.div>
-  </div>
-</section>
+        <div className="grid gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              icon: Code,
+              title: "Expert Web Developers",
+              description: "Our team builds high-performance, custom-coded Next.js applications with modern UI/UX design that are fully responsive and scalable.",
+              link: "/web-development"
+            },
+            {
+              icon: Palette,
+              title: "Creative Design Studio",
+              description: "From branding to graphic design, we create visually stunning assets that capture your brand identity and engage your audience.",
+              link: "/graphic-designing"
+            },
+            {
+              icon: Rocket,
+              title: "Performance Optimized",
+              description: "We deliver lightning-fast websites and applications optimized for speed, SEO, and user experience to maximize your digital impact.",
+              link: "/web-development"
+            },
+            {
+              icon: Shield,
+              title: "Secure & Reliable",
+              description: "All our solutions are built with security best practices and deployed on Vercel for enterprise-grade reliability and global scale.",
+              link: "/web-development"
+            },
+            {
+              icon: Zap,
+              title: "Modern Tech Stack",
+              description: "Leveraging Next.js, React, Tailwind CSS, and the latest technologies to build future-proof digital solutions that drive growth.",
+              link: "/web-development"
+            },
+            {
+              icon: Globe,
+              title: "Global Digital Presence",
+              description: "We help businesses establish a powerful online presence with strategic marketing, SEO, and content that reaches global audiences.",
+              link: "/digital-marketing"
+            },
+          ].map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="group relative rounded-2xl bg-white p-7 shadow-lg transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl overflow-hidden cursor-pointer border border-gray-100/50"
+            >
+              <Link href={item.link}>
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#193d84]/5 via-[#2a5a9e]/5 to-transparent"></div>
+                <div className="absolute -top-16 -right-16 h-32 w-32 rounded-full opacity-0 group-hover:opacity-10 transition-all duration-700 group-hover:scale-150 bg-[#193d84]"></div>
+                <div className="absolute top-0 left-0 w-0 h-1 group-hover:w-full transition-all duration-700 bg-gradient-to-r from-[#193d84] to-[#2a5a9e]"></div>
+
+                <div className="relative z-10">
+                  <div className="mb-5 inline-flex h-16 w-16 items-center justify-center rounded-2xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 bg-gradient-to-br from-[#193d84]/10 to-[#2a5a9e]/10 text-[#193d84] group-hover:bg-gradient-to-br group-hover:from-[#193d84] group-hover:to-[#2a5a9e] group-hover:text-white group-hover:shadow-lg group-hover:shadow-[#193d84]/25">
+                    <item.icon size={26} className="transition-all duration-300 group-hover:scale-110" />
+                  </div>
+                </div>
+
+                <h4 className="relative z-10 mb-2 text-lg font-bold text-black transition-all duration-300 group-hover:text-[#193d84]">
+                  {item.title}
+                </h4>
+                <p className="relative z-10 text-sm text-gray-600 transition-all duration-300 group-hover:text-gray-700">
+                  {item.description}
+                </p>
+
+                <div className="relative z-10 mt-4 flex items-center gap-1.5 text-sm font-semibold text-[#193d84] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:gap-3">
+                  <span>Learn More</span>
+                  <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </div>
+
+                <div className="absolute bottom-0 left-0 h-1 w-0 group-hover:w-full transition-all duration-700 bg-gradient-to-r from-[#193d84] to-[#2a5a9e]"></div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center mt-12"
+        >
+          <Link
+            href="/services"
+            className="group relative inline-flex items-center justify-center overflow-hidden bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-base px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-white/40"
+          >
+            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></span>
+            <span className="relative z-10 flex items-center">
+              Explore Our Services
+              <span className="ml-2 text-xl transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-12">→</span>
+            </span>
+            <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <span className="absolute inset-0 rounded-full animate-ping bg-[#193d84]/30"></span>
+            </span>
+          </Link>
+        </motion.div>
+      </div>
+    </section>
 
       {/* ========================================================= */}
       {/* TESTIMONIALS SECTION - SLIDER WITH DRAG (Bottom Space) */}
@@ -568,6 +576,7 @@ const Home = () => {
                 >
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-16 h-16 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img 
                         src={testimonial.image} 
                         className="w-full h-full object-cover" 
@@ -610,48 +619,48 @@ const Home = () => {
       </section>
 
      {/* ========================================================= */}
-{/* CTA SECTION - White Background with Blue Text */}
-{/* ========================================================= */}
-<section className="w-full bg-white py-20 relative overflow-hidden border-t border-gray-100">
-  <div className="absolute top-0 right-0 w-96 h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
-  <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
-  
-  <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#193d84] leading-tight">
-          Ready to Transform Your Digital Presence?
-        </h2>
-        <p className="text-lg text-gray-600 mt-4 max-w-lg">
-          Let's discuss how NexaSphere Tech can help you achieve your business goals through innovative digital solutions.
-        </p>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="flex flex-wrap gap-4 justify-start lg:justify-end"
-      >
-        <Link href="/contact">
-          <button className="bg-[#193d84] hover:bg-[#0b1220] text-white text-base font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105">
-            Get in Touch
-          </button>
-        </Link>
-        <Link href="/solutions">
-          <button className="border-2 border-[#193d84] text-[#193d84] hover:bg-[#193d84] hover:text-white text-base font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:scale-105">
-            Explore Solutions
-          </button>
-        </Link>
-      </motion.div>
-    </div>
-  </div>
-</section>
+     {/* CTA SECTION - White Background with Blue Text */}
+     {/* ========================================================= */}
+     <section className="w-full bg-white py-20 relative overflow-hidden border-t border-gray-100">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
+      
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#193d84] leading-tight">
+              Ready to Transform Your Digital Presence?
+            </h2>
+            <p className="text-lg text-gray-600 mt-4 max-w-lg">
+              Let's discuss how NexaSphere Tech can help you achieve your business goals through innovative digital solutions.
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-wrap gap-4 justify-start lg:justify-end"
+          >
+            <Link href="/contact">
+              <button className="bg-[#193d84] hover:bg-[#0b1220] text-white text-base font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105">
+                Get in Touch
+              </button>
+            </Link>
+            <Link href="">
+              <button className="border-2 border-[#193d84] text-[#193d84] hover:bg-[#193d84] hover:text-white text-base font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:scale-105">
+                Explore Solutions
+              </button>
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+    </section>
 
     </div>
   )

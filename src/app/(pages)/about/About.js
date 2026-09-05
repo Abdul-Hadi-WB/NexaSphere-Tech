@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -28,29 +28,29 @@ const About = () => {
       {/* ========================================================= */}
       {/* ABOUT HERO SECTION */}
       {/* ========================================================= */}
-      <section className="w-full bg-white py-16 md:py-24 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <section className="w-full bg-white py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="pt-0 lg:pt-4"
+              className="pt-0 lg:pt-4 text-center lg:text-left"
             >
               <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">About Us</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mt-3 leading-tight">
-                Powering Digital <br />
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mt-3 leading-tight">
+                Powering Digital <br className="hidden sm:block" />
                 <span className="text-[#193d84]">Transformation</span>
               </h1>
-              <p className="text-lg text-gray-600 mt-6 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 mt-4 sm:mt-6 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 NexaSphere Tech is a digital and creative technology agency providing professional 
                 Web Development, Graphic Design, Digital Marketing, Social Media Management, and 
                 Video Editing services. We help businesses build a strong digital presence through 
                 modern websites, creative branding, engaging content, and effective marketing strategies.
               </p>
-              <div className="grid grid-cols-2 gap-4 mt-8">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8 max-w-md mx-auto lg:mx-0">
                 {[
                   'Expert Team',
                   'Global Reach',
@@ -58,14 +58,14 @@ const About = () => {
                   'Client First'
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-2">
-                    <CheckCircle size={18} className="text-[#193d84]" />
+                    <CheckCircle size={18} className="text-[#193d84] flex-shrink-0" />
                     <span className="text-sm font-medium text-gray-700">{item}</span>
                   </div>
                 ))}
               </div>
-              <div className="flex flex-wrap items-center gap-4 mt-8">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-6 sm:mt-8">
                 <Link href="/contact">
-                  <button className="bg-[#193d84] hover:bg-[#0b1220] text-white text-sm font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center gap-2">
+                  <button className="bg-[#193d84] hover:bg-[#0b1220] text-white text-sm font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center gap-2">
                     Get in touch
                     <ArrowRight size={18} />
                   </button>
@@ -98,26 +98,26 @@ const About = () => {
       {/* ========================================================= */}
       {/* FOUNDER & CEO SECTION */}
       {/* ========================================================= */}
-      <section className="w-full bg-gray-50 py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="w-full bg-gray-50 py-16 sm:py-20 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
           >
             <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">Our Leadership</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mt-3 leading-tight">
               Meet Our <span className="text-[#193d84]">Founders</span>
             </h2>
-            <p className="text-lg text-gray-500 mt-4">
+            <p className="text-base sm:text-lg text-gray-500 mt-3 sm:mt-4">
               The visionaries behind NexaSphere Tech who drive innovation and excellence.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
             
             {/* Founder & CEO - Abdul Hadi */}
             <motion.div
@@ -125,30 +125,30 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"
+              className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"
             >
-              <div className="w-40 h-40 rounded-full overflow-hidden bg-gray-200 mx-auto mb-6 relative">
+              <div className="w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-gray-200 mx-auto mb-4 sm:mb-6 relative">
                 <Image
-                  src=""
+                  src="/images/WhatsApp Image 2026-08-24 at 5.29.11 PM.jpeg"
                   alt="Abdul Hadi - Founder & CEO"
                   fill
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-black">Abdul Hadi</h3>
-              <p className="text-[#193d84] font-semibold mt-1">Founder & CEO</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-black">Abdul Hadi</h3>
+              <p className="text-[#193d84] font-semibold mt-1 text-sm sm:text-base">Founder & CEO</p>
               <p className="text-gray-500 text-sm mt-3 leading-relaxed max-w-xs mx-auto">
                 Visionary leader with a passion for technology and innovation. Abdul Hadi leads NexaSphere Tech with a focus on delivering exceptional digital solutions and building a culture of excellence.
               </p>
-              <div className="flex items-center justify-center gap-4 mt-4">
-                <Link href="#" className="w-10 h-10 rounded-full bg-[#0077B5] hover:bg-[#0077B5]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
-                  <FaLinkedinIn size={18} />
+              <div className="flex items-center justify-center gap-3 sm:gap-4 mt-4">
+                <Link href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#0077B5] hover:bg-[#0077B5]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  <FaLinkedinIn size={16} />
                 </Link>
-                <Link href="#" className="w-10 h-10 rounded-full bg-[#1DA1F2] hover:bg-[#1DA1F2]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
-                  <FaTwitter size={18} />
+                <Link href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#1DA1F2] hover:bg-[#1DA1F2]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  <FaTwitter size={16} />
                 </Link>
-                <Link href="#" className="w-10 h-10 rounded-full bg-[#EA4335] hover:bg-[#EA4335]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
-                  <FaEnvelope size={18} />
+                <Link href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#EA4335] hover:bg-[#EA4335]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  <FaEnvelope size={16} />
                 </Link>
               </div>
             </motion.div>
@@ -159,9 +159,9 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"
+              className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"
             >
-              <div className="w-40 h-40 rounded-full overflow-hidden bg-gray-200 mx-auto mb-6 relative">
+              <div className="w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-gray-200 mx-auto mb-4 sm:mb-6 relative">
                 <Image
                   src="/images/CO-Founder.jpeg"
                   alt="Tanzeela Waheed - Co-Founder"
@@ -169,20 +169,20 @@ const About = () => {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-black">Tanzeela Waheed</h3>
-              <p className="text-[#193d84] font-semibold mt-1">Co-Founder</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-black">Tanzeela Waheed</h3>
+              <p className="text-[#193d84] font-semibold mt-1 text-sm sm:text-base">Co-Founder</p>
               <p className="text-gray-500 text-sm mt-3 leading-relaxed max-w-xs mx-auto">
                 Creative strategist and technical expert. Tanzeela Waheed brings innovative ideas to life, ensuring NexaSphere Tech delivers cutting-edge solutions that exceed client expectations.
               </p>
-              <div className="flex items-center justify-center gap-4 mt-4">
-                <Link href="#" className="w-10 h-10 rounded-full bg-[#0077B5] hover:bg-[#0077B5]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
-                  <FaLinkedinIn size={18} />
+              <div className="flex items-center justify-center gap-3 sm:gap-4 mt-4">
+                <Link href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#0077B5] hover:bg-[#0077B5]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  <FaLinkedinIn size={16} />
                 </Link>
-                <Link href="#" className="w-10 h-10 rounded-full bg-[#1DA1F2] hover:bg-[#1DA1F2]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
-                  <FaTwitter size={18} />
+                <Link href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#1DA1F2] hover:bg-[#1DA1F2]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  <FaTwitter size={16} />
                 </Link>
-                <Link href="#" className="w-10 h-10 rounded-full bg-[#EA4335] hover:bg-[#EA4335]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
-                  <FaEnvelope size={18} />
+                <Link href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#EA4335] hover:bg-[#EA4335]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  <FaEnvelope size={16} />
                 </Link>
               </div>
             </motion.div>
@@ -194,26 +194,26 @@ const About = () => {
       {/* ========================================================= */}
       {/* OUR TEAM SECTION */}
       {/* ========================================================= */}
-      <section className="w-full bg-white py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
           >
             <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">Our Team</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mt-3 leading-tight">
               The <span className="text-[#193d84]">Experts</span> Behind NexaSphere
             </h2>
-            <p className="text-lg text-gray-500 mt-4">
+            <p className="text-base sm:text-lg text-gray-500 mt-3 sm:mt-4">
               A dedicated team of professionals committed to delivering excellence.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             
             {/* Team Member 1 */}
             <motion.div
@@ -221,16 +221,16 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-gray-50 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              className="bg-gray-50 rounded-2xl p-5 sm:p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
             >
-              <div className="w-32 h-32 rounded-full overflow-hidden bg-gray-200 mx-auto mb-4">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden bg-gray-200 mx-auto mb-3 sm:mb-4">
                 <div className="w-full h-full bg-gradient-to-br from-[#193d84]/20 to-[#193d84]/5 flex items-center justify-center">
-                  <span className="text-3xl font-bold text-[#193d84]">JD</span>
+                  <span className="text-2xl sm:text-3xl font-bold text-[#193d84]">JD</span>
                 </div>
               </div>
-              <h4 className="text-xl font-bold text-black">John Doe</h4>
-              <p className="text-[#193d84] font-medium text-sm">Lead Developer</p>
-              <p className="text-gray-500 text-sm mt-2">Full-stack expert with 8+ years of experience in web development.</p>
+              <h4 className="text-lg sm:text-xl font-bold text-black">John Doe</h4>
+              <p className="text-[#193d84] font-medium text-xs sm:text-sm">Lead Developer</p>
+              <p className="text-gray-500 text-xs sm:text-sm mt-1 sm:mt-2">Full-stack expert with 8+ years of experience.</p>
             </motion.div>
 
             {/* Team Member 2 */}
@@ -239,16 +239,16 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-gray-50 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              className="bg-gray-50 rounded-2xl p-5 sm:p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
             >
-              <div className="w-32 h-32 rounded-full overflow-hidden bg-gray-200 mx-auto mb-4">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden bg-gray-200 mx-auto mb-3 sm:mb-4">
                 <div className="w-full h-full bg-gradient-to-br from-[#193d84]/20 to-[#193d84]/5 flex items-center justify-center">
-                  <span className="text-3xl font-bold text-[#193d84]">JS</span>
+                  <span className="text-2xl sm:text-3xl font-bold text-[#193d84]">JS</span>
                 </div>
               </div>
-              <h4 className="text-xl font-bold text-black">Jane Smith</h4>
-              <p className="text-[#193d84] font-medium text-sm">Creative Director</p>
-              <p className="text-gray-500 text-sm mt-2">Award-winning designer with a passion for brand storytelling.</p>
+              <h4 className="text-lg sm:text-xl font-bold text-black">Jane Smith</h4>
+              <p className="text-[#193d84] font-medium text-xs sm:text-sm">Creative Director</p>
+              <p className="text-gray-500 text-xs sm:text-sm mt-1 sm:mt-2">Award-winning designer with a passion for branding.</p>
             </motion.div>
 
             {/* Team Member 3 */}
@@ -257,16 +257,16 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-gray-50 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              className="bg-gray-50 rounded-2xl p-5 sm:p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
             >
-              <div className="w-32 h-32 rounded-full overflow-hidden bg-gray-200 mx-auto mb-4">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden bg-gray-200 mx-auto mb-3 sm:mb-4">
                 <div className="w-full h-full bg-gradient-to-br from-[#193d84]/20 to-[#193d84]/5 flex items-center justify-center">
-                  <span className="text-3xl font-bold text-[#193d84]">MR</span>
+                  <span className="text-2xl sm:text-3xl font-bold text-[#193d84]">MR</span>
                 </div>
               </div>
-              <h4 className="text-xl font-bold text-black">Mike Ross</h4>
-              <p className="text-[#193d84] font-medium text-sm">Marketing Strategist</p>
-              <p className="text-gray-500 text-sm mt-2">Data-driven marketer specializing in digital growth strategies.</p>
+              <h4 className="text-lg sm:text-xl font-bold text-black">Mike Ross</h4>
+              <p className="text-[#193d84] font-medium text-xs sm:text-sm">Marketing Strategist</p>
+              <p className="text-gray-500 text-xs sm:text-sm mt-1 sm:mt-2">Data-driven marketer specializing in growth.</p>
             </motion.div>
 
           </div>
@@ -274,13 +274,13 @@ const About = () => {
       </section>
 
       {/* ========================================================= */}
-      {/* VALUES SECTION - With Mission, Vision & Values (Professional Animations) */}
+      {/* VALUES SECTION - With Mission, Vision & Values */}
       {/* ========================================================= */}
-      <section className="w-full bg-[#f0f4ff] py-24 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
+      <section className="w-full bg-[#f0f4ff] py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative">
           
           {/* Sticker - Right Side Top Corner */}
-          <div className="absolute -top-6 right-0 z-20 w-32 sm:w-40 md:w-48 lg:w-56">
+          <div className="absolute -top-6 right-0 z-20 w-24 sm:w-32 md:w-40 lg:w-56">
             <Image
               src="/images/sidestickers2.png"
               alt="NexaSphere Tech Values"
@@ -296,7 +296,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
           >
             <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">Our Values</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mt-3 leading-tight">
@@ -304,29 +304,26 @@ const About = () => {
             </h2>
           </motion.div>
 
-          {/* Mission & Vision Cards - Professional with Animation */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {/* Mission & Vision Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+              className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
             >
-              {/* Animated Top Border */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#193d84] via-[#2a5a9e] to-[#193d84] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
-              
-              {/* Animated Background Glow */}
               <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#193d84]/5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
               
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-[#193d84]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#193d84] transition-colors duration-500">
-                    <span className="text-2xl group-hover:scale-110 transition-transform duration-500">🎯</span>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#193d84]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#193d84] transition-colors duration-500">
+                    <span className="text-xl sm:text-2xl group-hover:scale-110 transition-transform duration-500">🎯</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-[#193d84] group-hover:text-[#0b1220] transition-colors duration-500">Our Mission</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#193d84] group-hover:text-[#0b1220] transition-colors duration-500">Our Mission</h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-500">
+                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-500 text-sm sm:text-base">
                   To empower businesses with innovative digital solutions that drive growth, 
                   enhance brand visibility, and create meaningful connections with their audience 
                   through cutting-edge technology and creative excellence.
@@ -340,22 +337,19 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+              className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
             >
-              {/* Animated Top Border */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#193d84] via-[#2a5a9e] to-[#193d84] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
-              
-              {/* Animated Background Glow */}
               <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#193d84]/5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
               
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-[#193d84]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#193d84] transition-colors duration-500">
-                    <span className="text-2xl group-hover:scale-110 transition-transform duration-500">👁️</span>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#193d84]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#193d84] transition-colors duration-500">
+                    <span className="text-xl sm:text-2xl group-hover:scale-110 transition-transform duration-500">👁️</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-[#193d84] group-hover:text-[#0b1220] transition-colors duration-500">Our Vision</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#193d84] group-hover:text-[#0b1220] transition-colors duration-500">Our Vision</h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-500">
+                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-500 text-sm sm:text-base">
                   To become a global leader in digital and creative technology, recognized for 
                   transforming ideas into impactful digital experiences that help brands thrive 
                   in an ever-evolving digital landscape.
@@ -366,22 +360,22 @@ const About = () => {
           </div>
 
           {/* Values Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="group bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+              className="group bg-white rounded-2xl p-5 sm:p-6 lg:p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
             >
               <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#193d84] to-[#2a5a9e] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
               
-              <div className="w-16 h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#193d84] transition-colors duration-500 group-hover:scale-110 group-hover:rotate-6">
-                <Zap size={28} className="text-[#193d84] group-hover:text-white transition-colors duration-500" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:bg-[#193d84] transition-colors duration-500 group-hover:scale-110 group-hover:rotate-6">
+                <Zap size={24} className="text-[#193d84] group-hover:text-white transition-colors duration-500" />
               </div>
-              <h4 className="text-lg font-bold text-black group-hover:text-[#193d84] transition-colors duration-500">Innovation</h4>
-              <p className="text-gray-500 text-sm mt-2 group-hover:text-gray-600 transition-colors duration-500">Pushing boundaries with cutting-edge technology and creative solutions.</p>
+              <h4 className="text-base sm:text-lg font-bold text-black group-hover:text-[#193d84] transition-colors duration-500">Innovation</h4>
+              <p className="text-gray-500 text-xs sm:text-sm mt-1 sm:mt-2 group-hover:text-gray-600 transition-colors duration-500">Pushing boundaries with cutting-edge technology.</p>
             </motion.div>
 
             <motion.div
@@ -389,15 +383,15 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="group bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+              className="group bg-white rounded-2xl p-5 sm:p-6 lg:p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
             >
               <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#193d84] to-[#2a5a9e] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
               
-              <div className="w-16 h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#193d84] transition-colors duration-500 group-hover:scale-110 group-hover:rotate-6">
-                <Users size={28} className="text-[#193d84] group-hover:text-white transition-colors duration-500" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:bg-[#193d84] transition-colors duration-500 group-hover:scale-110 group-hover:rotate-6">
+                <Users size={24} className="text-[#193d84] group-hover:text-white transition-colors duration-500" />
               </div>
-              <h4 className="text-lg font-bold text-black group-hover:text-[#193d84] transition-colors duration-500">Collaboration</h4>
-              <p className="text-gray-500 text-sm mt-2 group-hover:text-gray-600 transition-colors duration-500">Working together to achieve remarkable results for our clients.</p>
+              <h4 className="text-base sm:text-lg font-bold text-black group-hover:text-[#193d84] transition-colors duration-500">Collaboration</h4>
+              <p className="text-gray-500 text-xs sm:text-sm mt-1 sm:mt-2 group-hover:text-gray-600 transition-colors duration-500">Working together to achieve remarkable results.</p>
             </motion.div>
 
             <motion.div
@@ -405,15 +399,15 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="group bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+              className="group bg-white rounded-2xl p-5 sm:p-6 lg:p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
             >
               <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#193d84] to-[#2a5a9e] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
               
-              <div className="w-16 h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#193d84] transition-colors duration-500 group-hover:scale-110 group-hover:rotate-6">
-                <Award size={28} className="text-[#193d84] group-hover:text-white transition-colors duration-500" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:bg-[#193d84] transition-colors duration-500 group-hover:scale-110 group-hover:rotate-6">
+                <Award size={24} className="text-[#193d84] group-hover:text-white transition-colors duration-500" />
               </div>
-              <h4 className="text-lg font-bold text-black group-hover:text-[#193d84] transition-colors duration-500">Excellence</h4>
-              <p className="text-gray-500 text-sm mt-2 group-hover:text-gray-600 transition-colors duration-500">Delivering quality that exceeds expectations every single time.</p>
+              <h4 className="text-base sm:text-lg font-bold text-black group-hover:text-[#193d84] transition-colors duration-500">Excellence</h4>
+              <p className="text-gray-500 text-xs sm:text-sm mt-1 sm:mt-2 group-hover:text-gray-600 transition-colors duration-500">Delivering quality that exceeds expectations.</p>
             </motion.div>
 
             <motion.div
@@ -421,15 +415,15 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="group bg-white rounded-2xl p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+              className="group bg-white rounded-2xl p-5 sm:p-6 lg:p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
             >
               <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#193d84] to-[#2a5a9e] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
               
-              <div className="w-16 h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#193d84] transition-colors duration-500 group-hover:scale-110 group-hover:rotate-6">
-                <Globe size={28} className="text-[#193d84] group-hover:text-white transition-colors duration-500" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#193d84]/10 flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:bg-[#193d84] transition-colors duration-500 group-hover:scale-110 group-hover:rotate-6">
+                <Globe size={24} className="text-[#193d84] group-hover:text-white transition-colors duration-500" />
               </div>
-              <h4 className="text-lg font-bold text-black group-hover:text-[#193d84] transition-colors duration-500">Global Impact</h4>
-              <p className="text-gray-500 text-sm mt-2 group-hover:text-gray-600 transition-colors duration-500">Creating digital solutions that make a difference worldwide.</p>
+              <h4 className="text-base sm:text-lg font-bold text-black group-hover:text-[#193d84] transition-colors duration-500">Global Impact</h4>
+              <p className="text-gray-500 text-xs sm:text-sm mt-1 sm:mt-2 group-hover:text-gray-600 transition-colors duration-500">Creating solutions that make a difference worldwide.</p>
             </motion.div>
 
           </div>
@@ -439,22 +433,23 @@ const About = () => {
       {/* ========================================================= */}
       {/* CTA SECTION - White Background with Blue Text */}
       {/* ========================================================= */}
-      <section className="w-full bg-white py-20 relative overflow-hidden border-t border-gray-100">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
+      <section className="w-full bg-white py-16 sm:py-20 relative overflow-hidden border-t border-gray-100">
+        <div className="absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
         
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="text-center lg:text-left"
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#193d84] leading-tight">
                 Ready to Transform Your Digital Presence?
               </h2>
-              <p className="text-lg text-gray-600 mt-4 max-w-lg">
+              <p className="text-base sm:text-lg text-gray-600 mt-3 sm:mt-4 max-w-lg mx-auto lg:mx-0">
                 Let's discuss how NexaSphere Tech can help you achieve your business goals through innovative digital solutions.
               </p>
             </motion.div>
@@ -463,15 +458,15 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="flex flex-wrap gap-4 justify-start lg:justify-end"
+              className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-end"
             >
               <Link href="/contact">
-                <button className="bg-[#193d84] hover:bg-[#0b1220] text-white text-base font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105">
+                <button className="bg-[#193d84] hover:bg-[#0b1220] text-white text-sm sm:text-base font-semibold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105">
                   Get in Touch
                 </button>
               </Link>
               <Link href="/solutions">
-                <button className="border-2 border-[#193d84] text-[#193d84] hover:bg-[#193d84] hover:text-white text-base font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:scale-105">
+                <button className="border-2 border-[#193d84] text-[#193d84] hover:bg-[#193d84] hover:text-white text-sm sm:text-base font-semibold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300 hover:scale-105">
                   Explore Solutions
                 </button>
               </Link>

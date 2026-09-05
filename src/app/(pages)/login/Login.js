@@ -111,7 +111,7 @@ const Login = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white flex flex-col justify-center pt-20 sm:pt-24 pb-16 px-4 sm:px-6">
+    <div className="min-h-screen bg-white flex flex-col justify-center pt-28 sm:pt-32 md:pt-36 pb-16 px-4 sm:px-6">
       
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-10 px-6 shadow-2xl rounded-3xl border border-gray-100 sm:px-10 relative overflow-hidden">

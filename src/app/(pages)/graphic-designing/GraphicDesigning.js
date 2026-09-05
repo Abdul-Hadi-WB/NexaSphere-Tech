@@ -177,13 +177,13 @@ const GraphicDesigning = () => {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full bg-white py-24 relative overflow-hidden"
+        className="w-full bg-white py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden"
       >
-        <div className="absolute top-20 right-0 w-96 h-96 bg-[#193d84]/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 left-0 w-96 h-96 bg-[#193d84]/10 rounded-full blur-3xl animate-pulse delay-700"></div>
+        <div className="absolute top-20 right-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-[#193d84]/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-[#193d84]/10 rounded-full blur-3xl animate-pulse delay-700"></div>
         
-        <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-14 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-14 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             
             {/* Left Column - Services */}
             <motion.div 
@@ -191,22 +191,22 @@ const GraphicDesigning = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="flex flex-col space-y-6"
+              className="flex flex-col space-y-4 sm:space-y-6 text-center lg:text-left"
             >
-              <p className="text-sm uppercase font-bold mt-24" style={{ color: '#193d84' }}>
+              <p className="text-sm uppercase font-bold mt-16 sm:mt-20 lg:mt-24" style={{ color: '#193d84' }}>
                 Graphic Design
               </p>
               
-              <h2 className="text-3xl md:text-3xl lg:text-4xl font-bold text-black leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
                 Bring Your Brand Vision<br/>To Life With Stunning Design
               </h2>
               
-              <p className="text-xl md:text-xl font-medium text-gray-500 leading-relaxed max-w-lg">
+              <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed max-w-lg mx-auto lg:mx-0">
                 From logos and brand identities to social media graphics and print materials, 
                 we create visually compelling designs that capture attention.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4">
                 {services.map((service, index) => (
                   <motion.div
                     key={index}
@@ -214,17 +214,17 @@ const GraphicDesigning = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
-                    className="group bg-gradient-to-br from-gray-50 to-white rounded-xl p-4 border border-gray-100 hover:border-[#193d84]/30 hover:shadow-lg transition-all duration-300"
+                    className="group bg-gradient-to-br from-gray-50 to-white rounded-xl p-3 sm:p-4 border border-gray-100 hover:border-[#193d84]/30 hover:shadow-lg transition-all duration-300"
                   >
-                    <div className="flex items-start gap-3">
-                      <div className="text-2xl group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <div className="text-xl sm:text-2xl group-hover:scale-110 transition-transform duration-300">
                         {service.icon}
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-black text-base mb-1">
+                        <h3 className="font-semibold text-black text-sm sm:text-base mb-0.5 sm:mb-1">
                           {service.name}
                         </h3>
-                        <p className="text-sm font-medium italic text-[#193d84]">
+                        <p className="text-xs sm:text-sm font-medium italic text-[#193d84]">
                           {service.price}
                         </p>
                       </div>
@@ -233,20 +233,22 @@ const GraphicDesigning = () => {
                 ))}
               </div>
 
-              <div className="pt-6">
-                <button className="group relative overflow-hidden bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-sm px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-white/40">
-                  <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></span>
-                  <span className="relative z-10 flex items-center">
-                    START YOUR PROJECT
-                    <span className="ml-2 text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-12">→</span>
-                  </span>
-                  <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <span className="absolute inset-0 rounded-full animate-ping bg-[#193d84]/30"></span>
-                  </span>
-                </button>
+              <div className="pt-4 sm:pt-6">
+                <Link href="/contact">
+                  <button className="group relative overflow-hidden bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-white/40">
+                    <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></span>
+                    <span className="relative z-10 flex items-center">
+                      START YOUR PROJECT
+                      <span className="ml-2 text-lg transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-12">→</span>
+                    </span>
+                    <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <span className="absolute inset-0 rounded-full animate-ping bg-[#193d84]/30"></span>
+                    </span>
+                  </button>
+                </Link>
               </div>
 
-              <div className="flex items-center gap-6 pt-4">
+              <div className="flex items-center justify-center lg:justify-start gap-6 pt-4">
                 <div className="flex -space-x-2">
                   {[1,2,3,4].map((i) => (
                     <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white"></div>
@@ -265,14 +267,14 @@ const GraphicDesigning = () => {
             <div className="relative flex justify-center items-center sticky top-24">
               <Card3D className="w-full max-w-xl">
                 <div className="relative w-full z-10">
-                  <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-20">
-                    <div className="bg-black/80 backdrop-blur-md rounded-full px-4 py-1.5 flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                      <span className="text-xs text-white font-medium">DESIGN PORTFOLIO</span>
+                  <div className="absolute -top-10 sm:-top-12 left-1/2 transform -translate-x-1/2 z-20">
+                    <div className="bg-black/80 backdrop-blur-md rounded-full px-3 sm:px-4 py-1 sm:py-1.5 flex items-center gap-1 sm:gap-2">
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="text-[10px] sm:text-xs text-white font-medium">DESIGN PORTFOLIO</span>
                     </div>
                   </div>
                   
-                  <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-t-2xl p-4 shadow-2xl">
+                  <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-t-2xl p-3 sm:p-4 shadow-2xl">
                     <div className="relative bg-black rounded-xl overflow-hidden shadow-inner aspect-[16/9]">
                       <div 
                         ref={scrollRef}
@@ -291,9 +293,9 @@ const GraphicDesigning = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-gradient-to-b from-gray-700 to-gray-800 rounded-b-2xl p-3 shadow-xl">
-                    <div className="bg-gray-900 rounded-xl p-3">
-                      <div className="w-24 h-2 bg-gray-700 mx-auto rounded-full"></div>
+                  <div className="bg-gradient-to-b from-gray-700 to-gray-800 rounded-b-2xl p-2 sm:p-3 shadow-xl">
+                    <div className="bg-gray-900 rounded-xl p-2 sm:p-3">
+                      <div className="w-16 sm:w-20 lg:w-24 h-2 bg-gray-700 mx-auto rounded-full"></div>
                     </div>
                   </div>
                   
@@ -313,19 +315,19 @@ const GraphicDesigning = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="w-full bg-gray-50 py-24 overflow-hidden border-t border-gray-100"
+        className="w-full bg-gray-50 py-12 sm:py-16 lg:py-20 overflow-hidden border-t border-gray-100"
       >
-        <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-14 mb-12 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-14 mb-8 sm:mb-12 text-center">
           <p className="text-sm uppercase font-bold tracking-wider" style={{ color: '#193d84' }}>
             Our Work
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-black mt-2">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mt-2">
             Our Recent Portfolio
           </h2>
         </div>
 
-        <div className="max-w-4xl mx-auto px-5 md:px-10 relative">
-          <div className="w-full overflow-hidden rounded-2xl shadow-xl bg-white p-2 border border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-10 relative">
+          <div className="w-full overflow-hidden rounded-2xl shadow-xl bg-white p-1.5 sm:p-2 border border-gray-100">
             <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl">
               
               {/* Slider Track with Drag Support */}
@@ -355,17 +357,17 @@ const GraphicDesigning = () => {
               {/* Navigation Arrows */}
               <button
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-black w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-10 hover:scale-110"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-black w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-10 hover:scale-110"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-black w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-10 hover:scale-110"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-black w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-10 hover:scale-110"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
@@ -374,15 +376,15 @@ const GraphicDesigning = () => {
           </div>
 
           {/* Dots */}
-          <div className="flex justify-center gap-2.5 mt-6">
+          <div className="flex justify-center gap-2 sm:gap-2.5 mt-4 sm:mt-6">
             {images.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => goToSlide(idx)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
+                className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 ${
                   portfolioIndex === idx 
-                    ? 'bg-[#193d84] w-6' 
-                    : 'bg-gray-300 w-2.5 hover:bg-gray-400'
+                    ? 'bg-[#193d84] w-4 sm:w-6' 
+                    : 'bg-gray-300 w-2 sm:w-2.5 hover:bg-gray-400'
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -390,23 +392,23 @@ const GraphicDesigning = () => {
           </div>
 
           {/* Drag Indicator */}
-          <p className="text-center text-sm text-gray-400 mt-4">
+          <p className="text-center text-xs sm:text-sm text-gray-400 mt-3 sm:mt-4">
             👆 Drag to slide or use buttons
           </p>
         </div>
       </motion.section>
 
       {/* ================================================================
-         3. GRAPHIC DESIGN SERVICES SECTION - WITH SMALL HEADING
+         3. GRAPHIC DESIGN SERVICES SECTION
       ================================================================ */}
       <motion.section 
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full bg-white py-16 relative overflow-hidden"
+        className="w-full bg-white py-12 sm:py-16 relative overflow-hidden"
       >
-        <div className="max-w-6xl mx-auto px-5 md:px-8 lg:px-10 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           
           {/* Heading with Small Blue Label */}
           <motion.div
@@ -414,18 +416,18 @@ const GraphicDesigning = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto mb-12"
+            className="text-center max-w-3xl mx-auto mb-8 sm:mb-12"
           >
             <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">How We Design</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-black leading-tight mt-3">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mt-3">
               Creative design solutions
             </h2>
-            <p className="text-xl md:text-xl font-medium text-gray-500 leading-relaxed mt-4">
+            <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed mt-3 sm:mt-4">
               Get professional graphic design services that elevate your brand, capture attention, and communicate your message with visual impact.
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16">
             {graphicServices.map((service, index) => (
               <motion.div
                 key={index}
@@ -433,20 +435,20 @@ const GraphicDesigning = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group"
+                className="bg-white rounded-xl p-5 sm:p-6 shadow-md border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group"
               >
-                <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 bg-[#193d84]/10 rounded-full flex items-center justify-center group-hover:bg-[#193d84] transition-colors duration-300">
-                    <span className="text-3xl group-hover:scale-110 transition-transform duration-300">{service.icon}</span>
+                <div className="flex justify-center mb-3 sm:mb-4">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#193d84]/10 rounded-full flex items-center justify-center group-hover:bg-[#193d84] transition-colors duration-300">
+                    <span className="text-2xl sm:text-3xl group-hover:scale-110 transition-transform duration-300">{service.icon}</span>
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-black mb-3 group-hover:text-[#193d84] transition-colors duration-300">
+                <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3 group-hover:text-[#193d84] transition-colors duration-300">
                   {service.title}
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                   {service.description}
                 </p>
-                <Link href={service.link} className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-[#193d84] hover:text-[#0b1220] transition-colors duration-300 group-hover:gap-3">
+                <Link href={service.link} className="inline-flex items-center gap-2 mt-3 sm:mt-4 text-sm font-semibold text-[#193d84] hover:text-[#0b1220] transition-colors duration-300 group-hover:gap-3">
                   Learn More
                   <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
@@ -457,19 +459,19 @@ const GraphicDesigning = () => {
       </motion.section>
 
       {/* ================================================================
-         4. EXPERT SECTION - UPDATED FOR NEXASPHERE
+         4. EXPERT SECTION
       ================================================================ */}
       <motion.section 
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full py-16 bg-[#f0f4ff]"
+        className="w-full py-12 sm:py-16 bg-[#f0f4ff]"
       >
-        <div className="max-w-5xl mx-auto px-6 md:px-8">
-          <div className="bg-gradient-to-r from-[#193d84] to-[#2a5a9e] rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-start gap-8 shadow-lg">
-            <div className="flex-shrink-0 flex flex-col items-center -mt-2">
-              <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
+          <div className="bg-gradient-to-r from-[#193d84] to-[#2a5a9e] rounded-2xl p-6 sm:p-8 md:p-12 flex flex-col md:flex-row items-start gap-6 sm:gap-8 shadow-lg">
+            <div className="flex-shrink-0 flex flex-col items-center w-full md:w-auto">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
                 <Image
                   src="/images/Founder@.jpeg"
                   alt="Ali Haider"
@@ -479,9 +481,8 @@ const GraphicDesigning = () => {
                 />
               </div>
               <div className="mt-3 text-center">
-                <h4 className="font-bold text-white text-base">Ali Haider</h4>
+                <h4 className="font-bold text-white text-sm sm:text-base">Ali Haider</h4>
                 <p className="text-white/80 text-xs">Senior Graphic Designer & SEO Expert</p>
-              
                 <div className="mt-3">
                   <a 
                     href="tel:03001234567" 
@@ -493,28 +494,28 @@ const GraphicDesigning = () => {
               </div>
             </div>
 
-            <div className="text-white flex-1">
-              <h3 className="text-xl md:text-2xl font-bold mb-4">
+            <div className="text-white flex-1 text-center md:text-left">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4">
                 Who you'll be speaking with:
               </h3>
-              <ul className="space-y-2 mb-5">
-                <li className="flex items-center gap-2">
+              <ul className="space-y-2 mb-4 sm:mb-5">
+                <li className="flex items-center justify-center md:justify-start gap-2 text-sm sm:text-base">
                   <span className="text-white">✔</span> 5+ Years in Graphic & Brand Design
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center justify-center md:justify-start gap-2 text-sm sm:text-base">
                   <span className="text-white">✔</span> Expert in Adobe Creative Suite & Figma
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center justify-center md:justify-start gap-2 text-sm sm:text-base">
                   <span className="text-white">✔</span> Specialized in Brand Identity & Visual Storytelling
                 </li>
-                <li className="flex items-center gap-2">
+                <li className="flex items-center justify-center md:justify-start gap-2 text-sm sm:text-base">
                   <span className="text-white">✔</span> 150+ Brands Designed & Launched
                 </li>
               </ul>
-              <p className="italic text-sm md:text-base leading-relaxed mb-4">
+              <p className="italic text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">
                 “Design is more than just aesthetics—it's the silent ambassador of your brand. Every color, font, and shape tells a story. My passion is helping businesses create visual identities that resonate deeply with their audience.”
               </p>
-              <p className="text-sm md:text-base leading-relaxed">
+              <p className="text-sm sm:text-base leading-relaxed">
                 At NexaSphere Tech, we believe that great branding combined with powerful SEO is the ultimate recipe for business growth. We work hand-in-hand with you to build a visual identity that resonates with your audience and establishes long-term market presence. Let's create something extraordinary together.
               </p>
             </div>
@@ -523,30 +524,30 @@ const GraphicDesigning = () => {
       </motion.section>
       
       {/* ================================================================
-         5. DESIGN EXPERTISE SECTION - WITH graphic-pic.png
+         5. DESIGN EXPERTISE SECTION
       ================================================================ */}
       <motion.section 
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full bg-white py-16 overflow-hidden"
+        className="w-full bg-white py-12 sm:py-16 overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-14">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="flex flex-col space-y-6 order-1">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-14">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="flex flex-col space-y-4 sm:space-y-6 order-1 text-center md:text-left">
               <p className="text-sm uppercase font-bold tracking-wider" style={{ color: '#193d84' }}>
                 DESIGN EXPERTISE
               </p>
-              <h2 className="text-3xl md:text-3xl lg:text-4xl font-bold text-black leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
                 Visual storytelling<br/>that captures hearts
               </h2>
-              <div className="space-y-5">
-                <p className="text-xl md:text-xl font-medium text-gray-500 leading-relaxed max-w-lg">
+              <div className="space-y-4 sm:space-y-5">
+                <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed max-w-lg mx-auto md:mx-0">
                   In a world bombarded with content, exceptional design makes you unforgettable. We combine artistic creativity with strategic thinking to create visuals that communicate your brand message effectively.
                 </p>
               </div>
-              <div className="flex items-center gap-6 pt-4">
+              <div className="flex items-center justify-center md:justify-start gap-6 pt-4">
                 <div className="flex -space-x-2">
                   {[1,2,3,4].map((i) => (
                     <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white"></div>
@@ -571,140 +572,134 @@ const GraphicDesigning = () => {
       </motion.section>
 
       {/* ================================================================
-         6. PRICING SECTION - NEXASPHERE
+         6. PRICING SECTION
       ================================================================ */}
       <motion.section 
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full bg-[#f0f4ff] py-24 relative overflow-hidden"
+        className="w-full bg-[#f0f4ff] py-16 sm:py-20 lg:py-24 relative overflow-hidden"
       >
         <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#193d84]/5 to-transparent"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
         
-        <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-14 relative z-10">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-14 relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
             <p className="text-sm uppercase font-bold tracking-wider mb-3 inline-block px-4 py-1.5 rounded-full bg-[#193d84]/10" style={{ color: '#193d84' }}>
               OUR PLANS
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-black leading-tight mt-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mt-4">
               Graphic Designing Pricing
             </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto mt-4">
+            <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto mt-3 sm:mt-4">
               Choose the perfect design package for your business needs. All plans include professional design and source files.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             
-            {/* ---------- BASIC DESIGN ---------- */}
+            {/* BASIC DESIGN */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 flex flex-col">
-              <div className="p-8 flex-1 flex flex-col">
-                <div className="w-16 h-16 bg-[#193d84]/10 rounded-2xl flex items-center justify-center mb-6">
-                  <span className="text-3xl">🎨</span>
+              <div className="p-6 sm:p-8 flex-1 flex flex-col">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#193d84]/10 rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
+                  <span className="text-2xl sm:text-3xl">🎨</span>
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-2">Basic Design</h3>
-                <p className="text-gray-500 mb-4">For startups &amp; small businesses</p>
-                <div className="mb-6">
-                  <span className="text-5xl font-bold text-black">$99</span>
-                  <span className="text-gray-500 text-lg ml-1">/project</span>
+                <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Basic Design</h3>
+                <p className="text-gray-500 text-sm sm:text-base mb-4">For startups &amp; small businesses</p>
+                <div className="mb-4 sm:mb-6">
+                  <span className="text-4xl sm:text-5xl font-bold text-black">$99</span>
+                  <span className="text-gray-500 text-base sm:text-lg ml-1">/project</span>
                 </div>
-                <ul className="space-y-3 mb-6 flex-1">
+                <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Primary logo design – 2 concepts</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Color palette</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Typography selection</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">High-resolution PNG &amp; JPG files</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Vector logo files – SVG / PDF</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Business card design</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Social media profile picture</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">2 revision rounds</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Final files delivered in organized formats</span></li>
                 </ul>
-                <div className="text-sm text-gray-400 mb-4 italic">* Custom projects are quoted according to scope, complexity, and turnaround requirements.</div>
-                <button className="w-full py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300">
-                  GET STARTED
-                </button>
+                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Custom projects quoted based on scope.</div>
+                <Link href="/contact" className="w-full">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base">
+                    GET STARTED
+                  </button>
+                </Link>
               </div>
             </div>
 
-            {/* ---------- COMPLETE BRAND IDENTITY ---------- */}
+            {/* COMPLETE BRAND IDENTITY */}
             <div className="bg-white rounded-2xl shadow-xl border-2 border-[#193d84]/30 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 flex flex-col relative">
-              <div className="absolute top-0 inset-x-0 bg-[#193d84] text-white text-center py-1.5 text-sm font-semibold tracking-wide uppercase">
+              <div className="absolute top-0 inset-x-0 bg-[#193d84] text-white text-center py-1.5 text-xs sm:text-sm font-semibold tracking-wide uppercase">
                 Most Popular
               </div>
-              <div className="p-8 pt-12 flex-1 flex flex-col">
-                <div className="w-16 h-16 bg-[#193d84]/10 rounded-2xl flex items-center justify-center mb-6">
-                  <span className="text-3xl">✨</span>
+              <div className="p-6 sm:p-8 pt-10 sm:pt-12 flex-1 flex flex-col">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#193d84]/10 rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
+                  <span className="text-2xl sm:text-3xl">✨</span>
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-2">Complete Brand Identity</h3>
-                <p className="text-gray-500 mb-4">For businesses wanting a complete professional identity</p>
-                <div className="mb-6">
-                  <span className="text-5xl font-bold text-black">$249</span>
-                  <span className="text-gray-500 text-lg ml-1">/project</span>
+                <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Complete Brand Identity</h3>
+                <p className="text-gray-500 text-sm sm:text-base mb-4">For businesses wanting a complete professional identity</p>
+                <div className="mb-4 sm:mb-6">
+                  <span className="text-4xl sm:text-5xl font-bold text-black">$249</span>
+                  <span className="text-gray-500 text-base sm:text-lg ml-1">/project</span>
                 </div>
-                <ul className="space-y-3 mb-6 flex-1">
+                <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Primary + secondary logo concepts</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Complete brand color palette</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Typography system</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Brand style guide</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Logo usage guidelines</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Business card design</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Letterhead design</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Social media profile kit</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Social media post templates</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">High-resolution &amp; vector files</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Source files</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Business card + letterhead design</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Social media profile kit + templates</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Vector files + source files</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">4 revision rounds</span></li>
                 </ul>
-                <div className="text-sm text-gray-400 mb-4 italic">* Custom projects are quoted according to scope, complexity, and turnaround requirements.</div>
-                <button className="w-full py-3 rounded-full bg-[#193d84] text-white font-semibold hover:bg-[#0b1220] transition-all duration-300 shadow-md flex items-center justify-center gap-2 group">
-                  CHOOSE PLAN
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </button>
+                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Custom projects quoted based on scope.</div>
+                <Link href="/contact" className="w-full">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full bg-[#193d84] text-white font-semibold hover:bg-[#0b1220] transition-all duration-300 shadow-md flex items-center justify-center gap-2 group text-sm sm:text-base">
+                    CHOOSE PLAN
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </button>
+                </Link>
               </div>
             </div>
 
-            {/* ---------- CUSTOM DESIGN ---------- */}
+            {/* CUSTOM DESIGN */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 flex flex-col">
-              <div className="p-8 flex-1 flex flex-col">
-                <div className="w-16 h-16 bg-[#193d84]/10 rounded-2xl flex items-center justify-center mb-6">
-                  <span className="text-3xl">🚀</span>
+              <div className="p-6 sm:p-8 flex-1 flex flex-col">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#193d84]/10 rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
+                  <span className="text-2xl sm:text-3xl">🚀</span>
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-2">Custom Design</h3>
-                <p className="text-gray-500 mb-4">For advanced &amp; ongoing creative requirements</p>
-                <div className="mb-6">
-                  <span className="text-5xl font-bold text-black">$499</span>
-                  <span className="text-gray-500 text-lg ml-1">+</span>
-                  <span className="text-gray-500 text-sm block mt-1">per project – scope-based pricing</span>
+                <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Custom Design</h3>
+                <p className="text-gray-500 text-sm sm:text-base mb-4">For advanced &amp; ongoing creative requirements</p>
+                <div className="mb-4 sm:mb-6">
+                  <span className="text-4xl sm:text-5xl font-bold text-black">$499</span>
+                  <span className="text-gray-500 text-base sm:text-lg ml-1">+</span>
+                  <span className="text-gray-500 text-xs sm:text-sm block mt-1">scope-based pricing</span>
                 </div>
-                <ul className="space-y-3 mb-6 flex-1">
+                <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Complete custom branding</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Product packaging &amp; label design</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Brochures &amp; flyers</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Posters &amp; marketing materials</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Brochures, flyers &amp; posters</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Social media design packages</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">UI/UX graphics</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Presentation / pitch deck design</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Custom illustrations</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Campaign creative design</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Source files</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Priority turnaround</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Dedicated designer</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Source files + dedicated designer</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Ongoing monthly design support available</span></li>
                 </ul>
-                <div className="text-sm text-gray-400 mb-4 italic">* Custom projects are quoted according to scope, complexity, and turnaround requirements.</div>
-                <button className="w-full py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300">
-                  CONTACT US
-                </button>
+                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Custom projects quoted based on scope.</div>
+                <Link href="/contact" className="w-full">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base">
+                    CONTACT US
+                  </button>
+                </Link>
               </div>
             </div>
 
           </div>
           
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12">
             <p className="text-gray-400 text-sm">
-              Need a custom plan? <a href="#" className="text-[#193d84] font-semibold hover:underline">Book a consultation →</a>
+              Need a custom plan? <Link href="/contact" className="text-[#193d84] font-semibold hover:underline">Book a consultation →</Link>
             </p>
           </div>
         </div>
