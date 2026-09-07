@@ -142,12 +142,12 @@ const Footer = () => {
             
             <div className="flex items-start gap-3 text-white/70 hover:text-white transition-all duration-300 group">
               <MdPhone size={18} className="mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-              <span className="text-sm">+92 311 6176345</span>
+              <span className="text-sm">+92 3027262793</span>
             </div>
             
             <div className="flex items-start gap-3 text-white/70 hover:text-white transition-all duration-300 group">
               <MdLocationOn size={18} className="mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
-              <span className="text-sm">Model Town, Lahore, Pakistan</span>
+              <span className="text-sm">337-4-D1 Township Lahore, Pakistan</span>
             </div>
           </div>
 

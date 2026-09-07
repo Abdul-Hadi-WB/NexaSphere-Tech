@@ -1,27 +1,63 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { 
   ArrowRight, 
-  Play, 
-  TrendingUp, 
-  Briefcase, 
   Award, 
-  Clock, 
   Users, 
-  Code, 
-  Palette, 
-  Rocket, 
   Zap, 
-  Shield, 
   Globe, 
   CheckCircle
 } from 'lucide-react'
 import { FaLinkedinIn, FaTwitter, FaEnvelope } from 'react-icons/fa'
 
 const About = () => {
+  // State for Founder 3D Tilt
+  const [fRotateX, setFRotateX] = useState(0)
+  const [fRotateY, setFRotateY] = useState(0)
+
+  // State for Co-Founder 3D Tilt
+  const [cRotateX, setCRotateX] = useState(0)
+  const [cRotateY, setCRotateY] = useState(0)
+
+  // Founder Mouse Handlers
+  const handleFounderMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const centerX = rect.width / 2
+    const centerY = rect.height / 2
+    const rotateX = ((y - centerY) / centerY) * -15
+    const rotateY = ((x - centerX) / centerX) * 15
+    setFRotateX(rotateX)
+    setFRotateY(rotateY)
+  }
+
+  const handleFounderMouseLeave = () => {
+    setFRotateX(0)
+    setFRotateY(0)
+  }
+
+  // Co-Founder Mouse Handlers
+  const handleCoFounderMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const centerX = rect.width / 2
+    const centerY = rect.height / 2
+    const rotateX = ((y - centerY) / centerY) * -15
+    const rotateY = ((x - centerX) / centerX) * 15
+    setCRotateX(rotateX)
+    setCRotateY(rotateY)
+  }
+
+  const handleCoFounderMouseLeave = () => {
+    setCRotateX(0)
+    setCRotateY(0)
+  }
+
   return (
     <div className="bg-white min-h-screen overflow-x-hidden pt-20">
       
@@ -96,97 +132,143 @@ const About = () => {
       </section>
 
       {/* ========================================================= */}
-      {/* FOUNDER & CEO SECTION */}
+      {/* FOUNDER/CEO SECTION WITH 3D TILT EFFECT - THEME STYLED */}
       {/* ========================================================= */}
-      <section className="w-full bg-gray-50 py-16 sm:py-20 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
-          >
-            <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">Our Leadership</p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mt-3 leading-tight">
-              Meet Our <span className="text-[#193d84]">Founders</span>
-            </h2>
-            <p className="text-base sm:text-lg text-gray-500 mt-3 sm:mt-4">
-              The visionaries behind NexaSphere Tech who drive innovation and excellence.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+      <section className="w-full bg-gray-50 py-20 overflow-hidden relative z-10">
+        <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-14">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             
-            {/* Founder & CEO - Abdul Hadi */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+            <motion.div 
+              initial={{ opacity: 0, x: -70 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"
+              transition={{ duration: 0.7 }}
+              className="flex flex-col space-y-6 order-1"
             >
-              <div className="w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-gray-200 mx-auto mb-4 sm:mb-6 relative">
-                <Image
-                  src="/images/WhatsApp Image 2026-08-24 at 5.29.11 PM.jpeg"
-                  alt="Abdul Hadi - Founder & CEO"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-black">Abdul Hadi</h3>
-              <p className="text-[#193d84] font-semibold mt-1 text-sm sm:text-base">Founder & CEO</p>
-              <p className="text-gray-500 text-sm mt-3 leading-relaxed max-w-xs mx-auto">
-                Visionary leader with a passion for technology and innovation. Abdul Hadi leads NexaSphere Tech with a focus on delivering exceptional digital solutions and building a culture of excellence.
+              <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">FOUNDER &amp; CEO'S VISION</p>
+              <h2 className="text-3xl md:text-3xl lg:text-4xl font-bold text-black leading-tight">
+                Meet The Mind Behind <br /> NexaSphere Tech
+              </h2>
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg">
+                Abdul Hadi, the Founder &amp; CEO of NexaSphere Tech, established this venture with a clear vision to redefine digital excellence. His leadership focuses on scaling technical boundaries and fostering top-tier solutions.
               </p>
-              <div className="flex items-center justify-center gap-3 sm:gap-4 mt-4">
-                <Link href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#0077B5] hover:bg-[#0077B5]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
-                  <FaLinkedinIn size={16} />
-                </Link>
-                <Link href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#1DA1F2] hover:bg-[#1DA1F2]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
-                  <FaTwitter size={16} />
-                </Link>
-                <Link href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#EA4335] hover:bg-[#EA4335]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
-                  <FaEnvelope size={16} />
-                </Link>
+              <div>
+                <span className="text-xl sm:text-2xl font-bold italic text-[#193d84]">ABDUL HADI - FOUNDER &amp; CEO</span>
               </div>
             </motion.div>
-
-            {/* Co-Founder - Tanzeela Waheed */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+            
+            {/* Founder/CEO 3D Interactive Container */}
+            <motion.div 
+              initial={{ opacity: 0, x: 70 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"
+              transition={{ duration: 0.7 }}
+              className="relative flex flex-col items-center justify-center order-2"
+              style={{ perspective: 1200 }}
             >
-              <div className="w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-gray-200 mx-auto mb-4 sm:mb-6 relative">
-                <Image
-                  src="/images/CO-Founder.jpeg"
-                  alt="Tanzeela Waheed - Co-Founder"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-black">Tanzeela Waheed</h3>
-              <p className="text-[#193d84] font-semibold mt-1 text-sm sm:text-base">Co-Founder</p>
-              <p className="text-gray-500 text-sm mt-3 leading-relaxed max-w-xs mx-auto">
-                Creative strategist and technical expert. Tanzeela Waheed brings innovative ideas to life, ensuring NexaSphere Tech delivers cutting-edge solutions that exceed client expectations.
-              </p>
-              <div className="flex items-center justify-center gap-3 sm:gap-4 mt-4">
-                <Link href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#0077B5] hover:bg-[#0077B5]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
-                  <FaLinkedinIn size={16} />
-                </Link>
-                <Link href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#1DA1F2] hover:bg-[#1DA1F2]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
-                  <FaTwitter size={16} />
-                </Link>
-                <Link href="#" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#EA4335] hover:bg-[#EA4335]/80 text-white flex items-center justify-center transition-all duration-300 hover:scale-110">
-                  <FaEnvelope size={16} />
-                </Link>
-              </div>
+              <div className="absolute w-64 h-64 bg-[#193d84]/10 rounded-full blur-3xl animate-pulse"></div>
+              
+              <motion.div
+                onMouseMove={handleFounderMouseMove}
+                onMouseLeave={handleFounderMouseLeave}
+                style={{
+                  rotateX: fRotateX,
+                  rotateY: fRotateY,
+                  transformStyle: "preserve-3d"
+                }}
+                className="relative z-10 flex flex-col items-center cursor-pointer group"
+              >
+                <motion.div style={{ transform: "translateZ(50px)" }}>
+                  <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-gray-200 shadow-2xl transition-all duration-300 group-hover:shadow-[0_25px_35px_rgba(25,61,132,0.35)]">
+                    <Image
+                      src="/images/CEO-pic.jpeg"
+                      alt="Founder & CEO Abdul Hadi"
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-cover"
+                      priority
+                    />
+                  </div>
+                </motion.div>
+                {/* Professional Bottom Line Effect */}
+                <motion.div 
+                  style={{ transform: "translateZ(30px)" }}
+                  className="w-48 h-1.5 bg-gradient-to-r from-transparent via-[#193d84] to-transparent mt-[-10px] rounded-full shadow-[0_5px_15px_rgba(25,61,132,0.6)]"
+                ></motion.div>
+              </motion.div>
+            </motion.div>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* CO-FOUNDER SECTION WITH 3D TILT EFFECT - THEME STYLED */}
+      {/* ========================================================= */}
+      <section className="w-full bg-white py-20 overflow-hidden relative z-10 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-14">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            
+            {/* Co-Founder 3D Interactive Container */}
+            <motion.div 
+              initial={{ opacity: 0, x: -70 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="relative flex flex-col items-center justify-center order-2 md:order-1"
+              style={{ perspective: 1200 }}
+            >
+              <div className="absolute w-64 h-64 bg-[#193d84]/10 rounded-full blur-3xl animate-pulse"></div>
+              
+              <motion.div
+                onMouseMove={handleCoFounderMouseMove}
+                onMouseLeave={handleCoFounderMouseLeave}
+                style={{
+                  rotateX: cRotateX,
+                  rotateY: cRotateY,
+                  transformStyle: "preserve-3d"
+                }}
+                className="relative z-10 flex flex-col items-center cursor-pointer group"
+              >
+                <motion.div style={{ transform: "translateZ(50px)" }}>
+                  <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden bg-gray-200 shadow-2xl transition-all duration-300 group-hover:shadow-[0_25px_35px_rgba(25,61,132,0.35)]">
+                    <Image
+                      src="/images/CO-Founder.jpeg"
+                      alt="Co-Founder Tanzeela Waheed"
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-cover"
+                      priority
+                    />
+                  </div>
+                </motion.div>
+                {/* Professional Bottom Line Effect */}
+                <motion.div 
+                  style={{ transform: "translateZ(30px)" }}
+                  className="w-48 h-1.5 bg-gradient-to-r from-transparent via-[#193d84] to-transparent mt-[-10px] rounded-full shadow-[0_5px_15px_rgba(25,61,132,0.6)]"
+                ></motion.div>
+              </motion.div>
             </motion.div>
 
+            <motion.div 
+              initial={{ opacity: 0, x: 70 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="flex flex-col space-y-6 order-1 md:order-2"
+            >
+              <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">CO-FOUNDER'S VISION</p>
+              <h2 className="text-3xl md:text-3xl lg:text-4xl font-bold text-black leading-tight">
+                Meet The Visionary Behind <br /> NexaSphere Tech
+              </h2>
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg">
+                Tanzeela Waheed, the Co-Founder of NexaSphere Tech, leads company operations and marketing strategies. Under her guidance, the agency delivers cutting-edge tech architectures worldwide.
+              </p>
+              <div>
+                <span className="text-xl sm:text-2xl font-bold italic text-[#193d84]">TANZEELA WAHEED - CO-FOUNDER</span>
+              </div>
+            </motion.div>
+            
           </div>
         </div>
       </section>
@@ -194,7 +276,7 @@ const About = () => {
       {/* ========================================================= */}
       {/* OUR TEAM SECTION */}
       {/* ========================================================= */}
-      <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
+      <section className="w-full bg-gray-50 py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           
           <motion.div
@@ -221,7 +303,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-gray-50 rounded-2xl p-5 sm:p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              className="bg-white rounded-2xl p-5 sm:p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
             >
               <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden bg-gray-200 mx-auto mb-3 sm:mb-4">
                 <div className="w-full h-full bg-gradient-to-br from-[#193d84]/20 to-[#193d84]/5 flex items-center justify-center">
@@ -239,7 +321,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-gray-50 rounded-2xl p-5 sm:p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              className="bg-white rounded-2xl p-5 sm:p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
             >
               <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden bg-gray-200 mx-auto mb-3 sm:mb-4">
                 <div className="w-full h-full bg-gradient-to-br from-[#193d84]/20 to-[#193d84]/5 flex items-center justify-center">
@@ -257,7 +339,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-gray-50 rounded-2xl p-5 sm:p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              className="bg-white rounded-2xl p-5 sm:p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
             >
               <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden bg-gray-200 mx-auto mb-3 sm:mb-4">
                 <div className="w-full h-full bg-gradient-to-br from-[#193d84]/20 to-[#193d84]/5 flex items-center justify-center">
@@ -276,21 +358,9 @@ const About = () => {
       {/* ========================================================= */}
       {/* VALUES SECTION - With Mission, Vision & Values */}
       {/* ========================================================= */}
-      <section className="w-full bg-[#f0f4ff] py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+      <section className="w-full bg-white py-16 sm:py-20 lg:py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative">
           
-          {/* Sticker - Right Side Top Corner */}
-          <div className="absolute -top-6 right-0 z-20 w-24 sm:w-32 md:w-40 lg:w-56">
-            <Image
-              src="/images/sidestickers2.png"
-              alt="NexaSphere Tech Values"
-              width={200}
-              height={200}
-              className="w-full h-auto object-contain"
-              priority
-            />
-          </div>
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -311,7 +381,7 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+              className="group bg-gray-50 rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#193d84] via-[#2a5a9e] to-[#193d84] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
               <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#193d84]/5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
@@ -323,7 +393,7 @@ const About = () => {
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-[#193d84] group-hover:text-[#0b1220] transition-colors duration-500">Our Mission</h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-500 text-sm sm:text-base">
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-500">
                   To empower businesses with innovative digital solutions that drive growth, 
                   enhance brand visibility, and create meaningful connections with their audience 
                   through cutting-edge technology and creative excellence.
@@ -337,7 +407,7 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+              className="group bg-gray-50 rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#193d84] via-[#2a5a9e] to-[#193d84] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
               <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#193d84]/5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
@@ -349,7 +419,7 @@ const About = () => {
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-[#193d84] group-hover:text-[#0b1220] transition-colors duration-500">Our Vision</h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-500 text-sm sm:text-base">
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-500">
                   To become a global leader in digital and creative technology, recognized for 
                   transforming ideas into impactful digital experiences that help brands thrive 
                   in an ever-evolving digital landscape.
@@ -367,7 +437,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="group bg-white rounded-2xl p-5 sm:p-6 lg:p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+              className="group bg-gray-50 rounded-2xl p-5 sm:p-6 lg:p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
             >
               <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#193d84] to-[#2a5a9e] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
               
@@ -383,7 +453,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="group bg-white rounded-2xl p-5 sm:p-6 lg:p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+              className="group bg-gray-50 rounded-2xl p-5 sm:p-6 lg:p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
             >
               <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#193d84] to-[#2a5a9e] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
               
@@ -399,7 +469,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="group bg-white rounded-2xl p-5 sm:p-6 lg:p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+              className="group bg-gray-50 rounded-2xl p-5 sm:p-6 lg:p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
             >
               <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#193d84] to-[#2a5a9e] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
               
@@ -415,7 +485,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="group bg-white rounded-2xl p-5 sm:p-6 lg:p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+              className="group bg-gray-50 rounded-2xl p-5 sm:p-6 lg:p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
             >
               <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#193d84] to-[#2a5a9e] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
               
@@ -431,11 +501,11 @@ const About = () => {
       </section>
 
       {/* ========================================================= */}
-      {/* CTA SECTION - White Background with Blue Text */}
+      {/* CTA SECTION */}
       {/* ========================================================= */}
-      <section className="w-full bg-white py-16 sm:py-20 relative overflow-hidden border-t border-gray-100">
-        <div className="absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
+      <section className="w-full bg-[#193d84] py-16 sm:py-20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-white/5 rounded-full blur-3xl"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -446,10 +516,10 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="text-center lg:text-left"
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#193d84] leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Ready to Transform Your Digital Presence?
               </h2>
-              <p className="text-base sm:text-lg text-gray-600 mt-3 sm:mt-4 max-w-lg mx-auto lg:mx-0">
+              <p className="text-base sm:text-lg text-white/80 mt-3 sm:mt-4 max-w-lg mx-auto lg:mx-0">
                 Let's discuss how NexaSphere Tech can help you achieve your business goals through innovative digital solutions.
               </p>
             </motion.div>
@@ -461,12 +531,12 @@ const About = () => {
               className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-end"
             >
               <Link href="/contact">
-                <button className="bg-[#193d84] hover:bg-[#0b1220] text-white text-sm sm:text-base font-semibold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105">
+                <button className="bg-white hover:bg-gray-100 text-[#193d84] text-sm sm:text-base font-semibold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300 hover:shadow-xl hover:scale-105">
                   Get in Touch
                 </button>
               </Link>
               <Link href="/solutions">
-                <button className="border-2 border-[#193d84] text-[#193d84] hover:bg-[#193d84] hover:text-white text-sm sm:text-base font-semibold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300 hover:scale-105">
+                <button className="border-2 border-white text-white hover:bg-white hover:text-[#193d84] text-sm sm:text-base font-semibold px-6 sm:px-8 py-3 sm:py-3.5 rounded-full transition-all duration-300 hover:scale-105">
                   Explore Solutions
                 </button>
               </Link>
