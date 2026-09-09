@@ -132,12 +132,12 @@ const Home = () => {
   }, [displayText, isDeleting, wordIndex, words])
 
   return (
-    <main className="bg-white min-h-screen overflow-x-hidden">
+    <main className="bg-white min-h-screen overflow-x-hidden pt-20 sm:pt-24 lg:pt-28">
       
       {/* ========================================================= */}
       {/* HERO SECTION */}
       {/* ========================================================= */}
-      <section className="w-full min-h-screen flex items-center bg-white relative overflow-hidden pt-16">
+      <section className="w-full min-h-screen flex items-center bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full py-12 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             
@@ -221,9 +221,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ========================================================= */}
       {/* STATS SECTION */}
-      {/* ========================================================= */}
       <section className="w-full bg-gray-50 py-12 sm:py-16 border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
@@ -250,9 +248,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ========================================================= */}
       {/* SERVICES SECTION */}
-      {/* ========================================================= */}
       <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <motion.div
@@ -337,9 +333,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ========================================================= */}
       {/* ABOUT SECTION */}
-      {/* ========================================================= */}
       <section className="w-full bg-gray-50 py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -407,9 +401,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ========================================================= */}
       {/* WHY CHOOSE US SECTION */}
-      {/* ========================================================= */}
       <section className="w-full bg-white py-16 sm:py-20 lg:py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative">
           
@@ -541,9 +533,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ========================================================= */}
       {/* TESTIMONIALS SECTION */}
-      {/* ========================================================= */}
       <section className="w-full bg-[#f0f4ff] py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           
@@ -623,9 +613,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ========================================================= */}
       {/* CTA SECTION */}
-      {/* ========================================================= */}
       <section className="w-full bg-white py-16 sm:py-20 relative overflow-hidden border-t border-gray-100">
         <div className="absolute top-0 right-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-[#193d84]/5 rounded-full blur-3xl"></div>

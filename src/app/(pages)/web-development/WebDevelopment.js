@@ -174,7 +174,7 @@ const WebDevelopment = () => {
   }, [images.length])
 
   return (
-    <>
+    <main className="bg-white min-h-screen overflow-x-hidden pt-20 sm:pt-24 lg:pt-28">
       <style jsx global>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
@@ -204,13 +204,13 @@ const WebDevelopment = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             
             <div className="flex flex-col space-y-4 sm:space-y-6 text-center lg:text-left">
-              <p className="text-sm uppercase font-bold mt-16 sm:mt-20 lg:mt-24" style={{ color: '#193d84' }}>
+              <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">
                 Website Development
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
                 Build Modern, Scalable<br/>Websites That Drive Results
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
                 We deliver high-performance websites that combine stunning design with powerful functionality.
               </p>
 
@@ -230,7 +230,10 @@ const WebDevelopment = () => {
 
               <div className="pt-4 sm:pt-6">
                 <Link href="/contact">
-                  <button className="group relative overflow-hidden bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all hover:scale-105">
+                  <button 
+                    className="group relative overflow-hidden bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all hover:scale-105 focus:outline-none"
+                    aria-label="Start your web development project with NexaSphere Tech"
+                  >
                     <span className="relative z-10 flex items-center">START YOUR PROJECT →</span>
                   </button>
                 </Link>
@@ -247,7 +250,12 @@ const WebDevelopment = () => {
                         className="w-full h-full overflow-y-auto overflow-x-hidden scrollbar-hide"
                       >
                         {[...images, ...images].map((img, i) => (
-                          <img key={i} src={img} className="w-full h-auto object-cover" alt="preview" />
+                          <img 
+                            key={i} 
+                            src={img} 
+                            className="w-full h-auto object-cover" 
+                            alt={`Website preview ${i + 1}`}
+                          />
                         ))}
                       </div>
                     </div>
@@ -330,7 +338,7 @@ const WebDevelopment = () => {
                       <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900 mb-2">{project.title}</h3>
                       <p className="text-[#193d84] font-semibold mb-2 text-sm sm:text-base">{project.subtitle}</p>
                       <p className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4">{project.stats}</p>
-                      <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">{project.description}</p>
+                      <p className="text-gray-700 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">{project.description}</p>
                       <ul className="flex flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-6 justify-center md:justify-start">
                         {project.technologies.map((tech, i) => (
                           <li key={i} className="px-2 sm:px-4 py-1 sm:py-2 text-xs font-bold bg-gray-100 rounded-full">
@@ -340,13 +348,13 @@ const WebDevelopment = () => {
                       </ul>
                       
                       {project.demoLink ? (
-                        <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
-                          <button className="inline-flex items-center gap-2 bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg">
+                        <a href={project.demoLink} target="_blank" rel="noopener noreferrer" aria-label={`View live demo of ${project.title}`}>
+                          <button className="inline-flex items-center gap-2 bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none">
                             <span>🔗</span> Live Demo
                           </button>
                         </a>
                       ) : (
-                        <button className="inline-flex items-center gap-2 bg-gray-400 cursor-not-allowed text-white font-semibold text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-xl opacity-70">
+                        <button className="inline-flex items-center gap-2 bg-gray-400 cursor-not-allowed text-white font-semibold text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-xl opacity-70 focus:outline-none">
                           <span>⏳</span> Coming Soon
                         </button>
                       )}
@@ -359,7 +367,13 @@ const WebDevelopment = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.3 }}
                     >
-                      <Image src={project.image} alt={project.title} fill className="object-contain" />
+                      <Image 
+                        src={project.image} 
+                        alt={`${project.title} - ${project.category} project showcase`} 
+                        fill 
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                        className="object-contain" 
+                      />
                     </motion.div>
                   </>
                 ) : (
@@ -371,7 +385,13 @@ const WebDevelopment = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.2 }}
                     >
-                      <Image src={project.image} alt={project.title} fill className="object-contain" />
+                      <Image 
+                        src={project.image} 
+                        alt={`${project.title} - ${project.category} project showcase`} 
+                        fill 
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                        className="object-contain" 
+                      />
                     </motion.div>
 
                     <motion.div 
@@ -385,7 +405,7 @@ const WebDevelopment = () => {
                       <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900 mb-2">{project.title}</h3>
                       <p className="text-[#193d84] font-semibold mb-2 text-sm sm:text-base">{project.subtitle}</p>
                       <p className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4">{project.stats}</p>
-                      <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">{project.description}</p>
+                      <p className="text-gray-700 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">{project.description}</p>
                       <ul className="flex flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-6 justify-center md:justify-start">
                         {project.technologies.map((tech, i) => (
                           <li key={i} className="px-2 sm:px-4 py-1 sm:py-2 text-xs font-bold bg-gray-100 rounded-full">
@@ -395,13 +415,13 @@ const WebDevelopment = () => {
                       </ul>
                       
                       {project.demoLink ? (
-                        <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
-                          <button className="inline-flex items-center gap-2 bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg">
+                        <a href={project.demoLink} target="_blank" rel="noopener noreferrer" aria-label={`View live demo of ${project.title}`}>
+                          <button className="inline-flex items-center gap-2 bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none">
                             <span>🔗</span> Live Demo
                           </button>
                         </a>
                       ) : (
-                        <button className="inline-flex items-center gap-2 bg-gray-400 cursor-not-allowed text-white font-semibold text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-xl opacity-70">
+                        <button className="inline-flex items-center gap-2 bg-gray-400 cursor-not-allowed text-white font-semibold text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 rounded-xl opacity-70 focus:outline-none">
                           <span>⏳</span> Coming Soon
                         </button>
                       )}
@@ -434,7 +454,7 @@ const WebDevelopment = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mt-3">
               Website design & development
             </h2>
-            <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed mt-3 sm:mt-4">
+            <p className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed mt-3 sm:mt-4">
               Get a custom-designed website that's easy to use, amplifies your online presence, and clearly showcases your brand.
             </p>
           </motion.div>
@@ -452,7 +472,7 @@ const WebDevelopment = () => {
                   <span className="text-2xl sm:text-3xl group-hover:scale-110 transition-transform duration-300">{service.icon}</span>
                 </div>
                 <h3 className="font-bold text-lg sm:text-xl mb-2 sm:mb-3 group-hover:text-[#193d84] transition-colors duration-300">{service.title}</h3>
-                <p className="text-gray-600 text-sm sm:text-base group-hover:text-gray-700 transition-colors duration-300">{service.description}</p>
+                <p className="text-gray-700 text-sm sm:text-base group-hover:text-gray-800 transition-colors duration-300">{service.description}</p>
                 <Link href={service.link} className="inline-flex items-center gap-2 mt-3 sm:mt-4 text-sm font-semibold text-[#193d84] hover:text-[#0b1220] transition-colors duration-300 group-hover:gap-3">
                   Learn More
                   <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -478,9 +498,10 @@ const WebDevelopment = () => {
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
                 <Image
                   src="/images/CEO@.jpeg"
-                  alt="Abdul Hadi"
+                  alt="Abdul Hadi - CEO of NexaSphere Tech"
                   width={96}
                   height={96}
+                  sizes="(max-width: 640px) 80px, 96px"
                   className="object-cover w-full h-full"
                   style={{ objectPosition: 'center 30%' }}
                 />
@@ -493,6 +514,7 @@ const WebDevelopment = () => {
                   <a 
                     href="tel:03027262793" 
                     className="inline-block bg-white text-[#193d84] text-xs font-bold px-3 py-1.5 rounded-full hover:bg-[#0b1220] hover:text-white transition duration-300 shadow-sm"
+                    aria-label="Call Abdul Hadi at 0302 7262793"
                   >
                     📞 0302 7262793
                   </a>
@@ -536,7 +558,7 @@ const WebDevelopment = () => {
                 Modern web development<br/>demands cutting-edge expertise
               </h2>
               <div className="space-y-4 sm:space-y-5">
-                <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed max-w-lg mx-auto md:mx-0">
+                <p className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed max-w-lg mx-auto md:mx-0">
                   In today's digital landscape, your website is your brand's most powerful asset. We specialize in building high-performance Next.js applications that combine blazing-fast speed, seamless user experiences, and enterprise-grade scalability.
                 </p>
               </div>
@@ -552,9 +574,10 @@ const WebDevelopment = () => {
               <div className="w-full relative">
                 <Image
                   src="/images/WebSec.png"
-                  alt="Next.js Expertise"
+                  alt="Next.js Expertise - Modern web development"
                   width={1200}
                   height={1200}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-auto object-contain" 
                 />
               </div>
@@ -578,9 +601,10 @@ const WebDevelopment = () => {
               <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
                 <Image
                   src="/images/CO-Founder.jpeg"
-                  alt="Tanzeela Waheed"
+                  alt="Tanzeela Waheed - Co-Founder of NexaSphere Tech"
                   width={128}
                   height={128}
+                  sizes="(max-width: 640px) 96px, (max-width: 768px) 112px, 128px"
                   className="object-cover w-full h-full"
                 />
               </div>
@@ -591,6 +615,7 @@ const WebDevelopment = () => {
                   <a 
                     href="tel:03004802356" 
                     className="inline-block bg-white text-[#193d84] text-xs font-bold px-3 py-1.5 rounded-full hover:bg-[#0b1220] hover:text-white transition duration-300 shadow-sm"
+                    aria-label="Call Tanzeela Waheed at 0300 4802356"
                   >
                     📞 0300 4802356
                   </a>
@@ -636,7 +661,7 @@ const WebDevelopment = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mt-4">
               Website Development Pricing
             </h2>
-            <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto mt-3 sm:mt-4">
+            <p className="text-gray-700 text-base sm:text-lg max-w-2xl mx-auto mt-3 sm:mt-4">
               Choose the perfect package for your business needs. All plans include our expert design and development.
             </p>
           </div>
@@ -650,24 +675,24 @@ const WebDevelopment = () => {
                   <span className="text-2xl sm:text-3xl">🌐</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Starter Website</h3>
-                <p className="text-gray-500 text-sm sm:text-base mb-4">Perfect for small businesses &amp; personal brands</p>
+                <p className="text-gray-600 text-sm sm:text-base mb-4">Perfect for small businesses &amp; personal brands</p>
                 <div className="mb-4 sm:mb-6">
                   <span className="text-4xl sm:text-5xl font-bold text-black">$99</span>
-                  <span className="text-gray-500 text-base sm:text-lg ml-1">one-time</span>
+                  <span className="text-gray-600 text-base sm:text-lg ml-1">one-time</span>
                 </div>
                 <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Up to 5 pages</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Modern &amp; clean design</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Fully responsive</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Custom business branding</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Contact form + WhatsApp</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Basic on-page SEO</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Website deployment</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">2 revision rounds</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Up to 5 pages</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Modern &amp; clean design</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Fully responsive</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Custom business branding</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Contact form + WhatsApp</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Basic on-page SEO</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Website deployment</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">2 revision rounds</span></li>
                 </ul>
-                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Domain &amp; hosting not included</div>
+                <div className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4 italic">* Domain &amp; hosting not included</div>
                 <Link href="/contact" className="w-full">
-                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base focus:outline-none">
                     GET STARTED
                   </button>
                 </Link>
@@ -684,25 +709,25 @@ const WebDevelopment = () => {
                   <span className="text-2xl sm:text-3xl">💼</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Pro Website</h3>
-                <p className="text-gray-500 text-sm sm:text-base mb-4">Perfect for growing businesses</p>
+                <p className="text-gray-600 text-sm sm:text-base mb-4">Perfect for growing businesses</p>
                 <div className="mb-4 sm:mb-6">
                   <span className="text-4xl sm:text-5xl font-bold text-black">$249</span>
-                  <span className="text-gray-500 text-base sm:text-lg ml-1">one-time</span>
+                  <span className="text-gray-600 text-base sm:text-lg ml-1">one-time</span>
                 </div>
                 <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Up to 10-12 pages</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Premium custom UI/UX design</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Next.js / React development</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Advanced animations</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Advanced on-page SEO</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">WhatsApp + Contact form</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">1-year .com domain included</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Vercel deployment included</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">3-4 revision rounds</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Up to 10-12 pages</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Premium custom UI/UX design</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Next.js / React development</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Advanced animations</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Advanced on-page SEO</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">WhatsApp + Contact form</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">1-year .com domain included</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Vercel deployment included</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">3-4 revision rounds</span></li>
                 </ul>
-                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Domain included for 1 year; renewal costs apply.</div>
+                <div className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4 italic">* Domain included for 1 year; renewal costs apply.</div>
                 <Link href="/contact" className="w-full">
-                  <button className="w-full py-2.5 sm:py-3 rounded-full bg-[#193d84] text-white font-semibold hover:bg-[#0b1220] transition-all duration-300 shadow-md flex items-center justify-center gap-2 group text-sm sm:text-base">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full bg-[#193d84] text-white font-semibold hover:bg-[#0b1220] transition-all duration-300 shadow-md flex items-center justify-center gap-2 group text-sm sm:text-base focus:outline-none">
                     LEARN MORE 
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </button>
@@ -717,24 +742,24 @@ const WebDevelopment = () => {
                   <span className="text-2xl sm:text-3xl">🎨</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Custom Website</h3>
-                <p className="text-gray-500 text-sm sm:text-base mb-4">For businesses requiring advanced solutions</p>
+                <p className="text-gray-600 text-sm sm:text-base mb-4">For businesses requiring advanced solutions</p>
                 <div className="mb-4 sm:mb-6">
                   <span className="text-4xl sm:text-5xl font-bold text-black">$399</span>
-                  <span className="text-gray-500 text-base sm:text-lg ml-1">+</span>
+                  <span className="text-gray-600 text-base sm:text-lg ml-1">+</span>
                   <span className="text-gray-500 text-xs sm:text-sm block mt-1">final price depends on scope</span>
                 </div>
                 <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Fully custom design &amp; development</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Unlimited pages &amp; features</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Advanced functionality</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">1-year domain included</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Full project management</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Enterprise-grade performance</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Ongoing support options</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Fully custom design &amp; development</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Unlimited pages &amp; features</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Advanced functionality</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">1-year domain included</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Full project management</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Enterprise-grade performance</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Ongoing support options</span></li>
                 </ul>
-                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Domain included for 1 year; renewal costs apply.</div>
+                <div className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4 italic">* Domain included for 1 year; renewal costs apply.</div>
                 <Link href="/contact" className="w-full">
-                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base focus:outline-none">
                     CONTACT US
                   </button>
                 </Link>
@@ -744,14 +769,14 @@ const WebDevelopment = () => {
           </div>
           
           <div className="text-center mt-8 sm:mt-12">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-500 text-sm">
               Need a custom plan? <Link href="/contact" className="text-[#193d84] font-semibold hover:underline">Book a consultation →</Link>
             </p>
           </div>
         </div>
       </motion.section>
 
-    </>
+    </main>
   )
 }
 

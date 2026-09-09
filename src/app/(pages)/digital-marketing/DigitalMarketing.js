@@ -175,7 +175,7 @@ const DigitalMarketing = () => {
   }
 
   return (
-    <>
+    <main className="bg-white min-h-screen overflow-x-hidden pt-20 sm:pt-24 lg:pt-28">
       {/* Global styles to hide scrollbars */}
       <style jsx global>{`
         .scrollbar-hide::-webkit-scrollbar {
@@ -215,15 +215,15 @@ const DigitalMarketing = () => {
               transition={{ duration: 0.6 }}
               className="flex flex-col space-y-4 sm:space-y-6 text-center lg:text-left"
             >
-              <p className="text-sm uppercase font-bold mt-16 sm:mt-20 lg:mt-24" style={{ color: '#193d84' }}>
+              <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">
                 Digital Marketing
               </p>
               
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
                 Grow Your Business With<br/>Data-Driven Marketing
-              </h2>
+              </h1>
               
-              <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              <p className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
                 From SEO and social media to PPC campaigns and content strategy, 
                 we deliver results-driven marketing solutions that increase visibility, 
                 drive qualified traffic, and boost your bottom line.
@@ -235,6 +235,7 @@ const DigitalMarketing = () => {
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
                     className="group bg-gradient-to-br from-gray-50 to-white rounded-xl p-3 sm:p-4 border border-gray-100 hover:border-[#193d84]/30 hover:shadow-lg transition-all duration-300"
                   >
@@ -257,7 +258,10 @@ const DigitalMarketing = () => {
 
               <div className="pt-4 sm:pt-6">
                 <Link href="/contact">
-                  <button className="group relative overflow-hidden bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-white/40">
+                  <button 
+                    className="group relative overflow-hidden bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-white/40 focus:outline-none"
+                    aria-label="Start growing with digital marketing services from NexaSphere Tech"
+                  >
                     <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></span>
                     <span className="relative z-10 flex items-center">
                       START GROWING TODAY
@@ -280,7 +284,7 @@ const DigitalMarketing = () => {
                   <p className="text-sm text-black/60">
                     <span className="font-bold text-black">100+</span> Campaigns Managed
                   </p>
-                  <p className="text-xs text-gray-400">300% Average ROI</p>
+                  <p className="text-xs text-gray-500">300% Average ROI</p>
                 </div>
               </div>
             </motion.div>
@@ -430,7 +434,8 @@ const DigitalMarketing = () => {
               {/* Navigation Arrows */}
               <button
                 onClick={prevSlide}
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-black w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-10 hover:scale-110"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-black w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-10 hover:scale-110 focus:outline-none"
+                aria-label="Previous slide"
               >
                 <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -438,7 +443,8 @@ const DigitalMarketing = () => {
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-black w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-10 hover:scale-110"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-black w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-10 hover:scale-110 focus:outline-none"
+                aria-label="Next slide"
               >
                 <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -494,7 +500,7 @@ const DigitalMarketing = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mt-3">
               Comprehensive marketing solutions
             </h2>
-            <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed mt-3 sm:mt-4">
+            <p className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed mt-3 sm:mt-4">
               Get a complete digital marketing strategy that amplifies your online presence, 
               generates quality leads, and maximizes your return on investment.
             </p>
@@ -518,7 +524,7 @@ const DigitalMarketing = () => {
                 <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3 group-hover:text-[#193d84] transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm text-gray-700 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
                   {service.description}
                 </p>
                 <Link href="#" className="inline-flex items-center gap-2 mt-3 sm:mt-4 text-sm font-semibold text-[#193d84] hover:text-[#0b1220] transition-colors duration-300 group-hover:gap-3">
@@ -547,9 +553,10 @@ const DigitalMarketing = () => {
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
                 <Image
                   src="/images/marketing-expert.jpg"
-                  alt="Sarah Khan"
+                  alt="Maryam - Digital Marketing Strategist"
                   width={96}
                   height={96}
+                  sizes="(max-width: 640px) 80px, 96px"
                   className="object-cover w-full h-full"
                 />
               </div>
@@ -560,6 +567,7 @@ const DigitalMarketing = () => {
                   <a 
                     href="tel:03116176345" 
                     className="inline-block bg-white text-[#193d84] text-xs font-bold px-3 py-1.5 rounded-full hover:bg-[#0b1220] hover:text-white transition duration-300 shadow-sm"
+                    aria-label="Call Maryam at 0311 6176345"
                   >
                     📞 0311 6176345
                   </a>
@@ -616,7 +624,7 @@ const DigitalMarketing = () => {
                 Data-driven marketing<br/>that delivers real results
               </h2>
               <div className="space-y-4 sm:space-y-5">
-                <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed max-w-lg mx-auto md:mx-0">
+                <p className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed max-w-lg mx-auto md:mx-0">
                   Stop guessing and start growing with our analytics-first approach. We combine cutting-edge marketing tools with proven strategies to help you reach the right audience, at the right time, with the right message. Our campaigns are continuously optimized for maximum performance and ROI.
                 </p>
               </div>
@@ -636,6 +644,7 @@ const DigitalMarketing = () => {
                   alt="Marketing Expertise"
                   width={1200}
                   height={1200}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-auto object-contain" 
                 />
               </div>
@@ -665,7 +674,7 @@ const DigitalMarketing = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mt-4">
               Digital Marketing Pricing
             </h2>
-            <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto mt-3 sm:mt-4">
+            <p className="text-gray-700 text-base sm:text-lg max-w-2xl mx-auto mt-3 sm:mt-4">
               Choose the perfect marketing package for your business goals. All plans include strategy, execution, and regular reporting.
             </p>
           </div>
@@ -679,23 +688,23 @@ const DigitalMarketing = () => {
                   <span className="text-2xl sm:text-3xl">📈</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Starter Marketing</h3>
-                <p className="text-gray-500 text-sm sm:text-base mb-4">For small &amp; local businesses</p>
+                <p className="text-gray-600 text-sm sm:text-base mb-4">For small &amp; local businesses</p>
                 <div className="mb-4 sm:mb-6">
                   <span className="text-4xl sm:text-5xl font-bold text-black">$99</span>
-                  <span className="text-gray-500 text-base sm:text-lg ml-1">/month</span>
+                  <span className="text-gray-600 text-base sm:text-lg ml-1">/month</span>
                 </div>
                 <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Basic keyword research</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">On-page SEO</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Google Business Profile optimization</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Basic social media management</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">8 social media posts/month</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Monthly performance report</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">1 monthly strategy call</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Basic keyword research</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">On-page SEO</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Google Business Profile optimization</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Basic social media management</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">8 social media posts/month</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Monthly performance report</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">1 monthly strategy call</span></li>
                 </ul>
-                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Ad spend not included</div>
+                <div className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4 italic">* Ad spend not included</div>
                 <Link href="/contact" className="w-full">
-                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base focus:outline-none">
                     GET STARTED
                   </button>
                 </Link>
@@ -712,24 +721,24 @@ const DigitalMarketing = () => {
                   <span className="text-2xl sm:text-3xl">🚀</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Pro Marketing</h3>
-                <p className="text-gray-500 text-sm sm:text-base mb-4">For growing brands</p>
+                <p className="text-gray-600 text-sm sm:text-base mb-4">For growing brands</p>
                 <div className="mb-4 sm:mb-6">
                   <span className="text-4xl sm:text-5xl font-bold text-black">$249</span>
-                  <span className="text-gray-500 text-base sm:text-lg ml-1">/month</span>
+                  <span className="text-gray-600 text-base sm:text-lg ml-1">/month</span>
                 </div>
                 <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Advanced keyword research</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Complete on-page SEO</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Local SEO</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Social media management</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">12-16 posts/month</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Content writing</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Monthly analytics report</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">2 monthly strategy calls</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Advanced keyword research</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Complete on-page SEO</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Local SEO</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Social media management</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">12-16 posts/month</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Content writing</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Monthly analytics report</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">2 monthly strategy calls</span></li>
                 </ul>
-                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Ad spend not included</div>
+                <div className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4 italic">* Ad spend not included</div>
                 <Link href="/contact" className="w-full">
-                  <button className="w-full py-2.5 sm:py-3 rounded-full bg-[#193d84] text-white font-semibold hover:bg-[#0b1220] transition-all duration-300 shadow-md flex items-center justify-center gap-2 group text-sm sm:text-base">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full bg-[#193d84] text-white font-semibold hover:bg-[#0b1220] transition-all duration-300 shadow-md flex items-center justify-center gap-2 group text-sm sm:text-base focus:outline-none">
                     LEARN MORE 
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </button>
@@ -744,24 +753,24 @@ const DigitalMarketing = () => {
                   <span className="text-2xl sm:text-3xl">🏆</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Enterprise Marketing</h3>
-                <p className="text-gray-500 text-sm sm:text-base mb-4">For established businesses</p>
+                <p className="text-gray-600 text-sm sm:text-base mb-4">For established businesses</p>
                 <div className="mb-4 sm:mb-6">
                   <span className="text-4xl sm:text-5xl font-bold text-black">$499</span>
-                  <span className="text-gray-500 text-base sm:text-lg ml-1">+</span>
+                  <span className="text-gray-600 text-base sm:text-lg ml-1">+</span>
                   <span className="text-gray-500 text-xs sm:text-sm block mt-1">final price depends on scope</span>
                 </div>
                 <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Full-service digital marketing</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Advanced SEO strategy</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Social media management (20+ posts/month)</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">PPC / Google Ads management</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Meta Ads management</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Dedicated account management</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Weekly strategy meetings</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Full-service digital marketing</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Advanced SEO strategy</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Social media management (20+ posts/month)</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">PPC / Google Ads management</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Meta Ads management</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Dedicated account management</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Weekly strategy meetings</span></li>
                 </ul>
-                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Ad spend not included</div>
+                <div className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4 italic">* Ad spend not included</div>
                 <Link href="/contact" className="w-full">
-                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base focus:outline-none">
                     CONTACT US
                   </button>
                 </Link>
@@ -771,13 +780,13 @@ const DigitalMarketing = () => {
           </div>
           
           <div className="text-center mt-8 sm:mt-12">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-500 text-sm">
               Need a custom plan? <Link href="/contact" className="text-[#193d84] font-semibold hover:underline">Book a consultation →</Link>
             </p>
           </div>
         </div>
       </motion.section>
-    </>
+    </main>
   )
 }
 

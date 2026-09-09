@@ -54,6 +54,8 @@ const VideoEditing = () => {
 
   const [heroMuted, setHeroMuted] = useState(true)
   const [portfolioMuted, setPortfolioMuted] = useState(true)
+  const [heroVideoError, setHeroVideoError] = useState(false)
+  const [portfolioVideoError, setPortfolioVideoError] = useState(false)
 
   const videoPath = '/images/video1.mp4'
 
@@ -92,6 +94,11 @@ const VideoEditing = () => {
     if (heroVideoRef.current) {
       heroVideoRef.current.play().catch((error) => {
         console.log("Hero video autoplay prevented:", error)
+      })
+    }
+    if (portfolioVideoRef.current) {
+      portfolioVideoRef.current.play().catch((error) => {
+        console.log("Portfolio video autoplay prevented:", error)
       })
     }
   }, [])
@@ -136,7 +143,7 @@ const VideoEditing = () => {
   }
 
   return (
-    <>
+    <main className="bg-white min-h-screen overflow-x-hidden pt-20 sm:pt-24 lg:pt-28">
       {/* Global styles to hide scrollbars */}
       <style jsx global>{`
         .scrollbar-hide::-webkit-scrollbar {
@@ -149,6 +156,9 @@ const VideoEditing = () => {
         body {
           overflow-x: hidden;
           max-width: 100vw;
+        }
+        video {
+          background: #1a1a1a;
         }
       `}</style>
 
@@ -177,15 +187,15 @@ const VideoEditing = () => {
               transition={{ duration: 0.6 }}
               className="flex flex-col space-y-4 sm:space-y-6 text-center lg:text-left"
             >
-              <p className="text-sm uppercase font-bold mt-16 sm:mt-20 lg:mt-24" style={{ color: '#193d84' }}>
+              <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">
                 Video Editing
               </p>
               
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
                 Transform Your Raw Footage Into<br/> Captivating Stories
-              </h2>
+              </h1>
               
-              <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              <p className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
                 From corporate videos and YouTube content to social media reels and motion graphics, 
                 we bring your vision to life with professional editing, stunning effects, and 
                 engaging storytelling that keeps viewers coming back.
@@ -220,7 +230,10 @@ const VideoEditing = () => {
 
               <div className="pt-4 sm:pt-6">
                 <Link href="/contact">
-                  <button className="group relative overflow-hidden bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-white/40">
+                  <button 
+                    className="group relative overflow-hidden bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-white/40 focus:outline-none"
+                    aria-label="Start your video editing project with NexaSphere Tech"
+                  >
                     <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></span>
                     <span className="relative z-10 flex items-center">
                       START YOUR PROJECT
@@ -243,7 +256,7 @@ const VideoEditing = () => {
                   <p className="text-sm text-black/60">
                     <span className="font-bold text-black">300+</span> Videos Edited
                   </p>
-                  <p className="text-xs text-gray-400">10M+ Total Views</p>
+                  <p className="text-xs text-gray-500">10M+ Total Views</p>
                 </div>
               </div>
             </motion.div>
@@ -273,20 +286,31 @@ const VideoEditing = () => {
                 
                 <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 rounded-t-2xl p-3 sm:p-4 shadow-2xl">
                   <div className="relative bg-black rounded-xl overflow-hidden shadow-inner aspect-[16/9]">
-                    <video
-                      ref={heroVideoRef}
-                      src={videoPath}
-                      autoPlay
-                      loop
-                      playsInline
-                      muted={heroMuted}
-                      preload="auto"
-                      className="w-full h-full object-contain"
-                    />
+                    {!heroVideoError ? (
+                      <video
+                        ref={heroVideoRef}
+                        src={videoPath}
+                        autoPlay
+                        loop
+                        playsInline
+                        muted={heroMuted}
+                        preload="auto"
+                        className="w-full h-full object-contain"
+                        onError={() => setHeroVideoError(true)}
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-gray-900 text-white p-4 text-center">
+                        <div>
+                          <p className="text-4xl mb-2">🎬</p>
+                          <p className="text-sm text-gray-400">Video preview</p>
+                        </div>
+                      </div>
+                    )}
 
                     <button
                       onClick={() => setHeroMuted(!heroMuted)}
-                      className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 z-30 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/70 border border-white/20 text-white flex items-center justify-center hover:bg-black hover:scale-110 transition-all shadow-md text-sm sm:text-base"
+                      className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 z-30 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/70 border border-white/20 text-white flex items-center justify-center hover:bg-black hover:scale-110 transition-all shadow-md text-sm sm:text-base focus:outline-none"
+                      aria-label={heroMuted ? "Unmute video" : "Mute video"}
                       title={heroMuted ? "Unmute Sound" : "Mute Sound"}
                     >
                       {heroMuted ? "🔇" : "🔊"}
@@ -353,21 +377,32 @@ const VideoEditing = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-10 relative">
           <div className="w-full overflow-hidden rounded-2xl shadow-xl bg-white p-1.5 sm:p-2 border border-gray-100 relative group">
             <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-black">
-              <video
-                ref={portfolioVideoRef}
-                src={videoPath}
-                autoPlay
-                loop
-                playsInline
-                muted={portfolioMuted}
-                preload="auto"
-                className="w-full h-full object-contain"
-              />
+              {!portfolioVideoError ? (
+                <video
+                  ref={portfolioVideoRef}
+                  src={videoPath}
+                  autoPlay
+                  loop
+                  playsInline
+                  muted={portfolioMuted}
+                  preload="auto"
+                  className="w-full h-full object-contain"
+                  onError={() => setPortfolioVideoError(true)}
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-gray-900 text-white p-4 text-center">
+                  <div>
+                    <p className="text-4xl mb-2">🎥</p>
+                    <p className="text-sm text-gray-400">Portfolio video</p>
+                  </div>
+                </div>
+              )}
 
               <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 z-20 flex items-center gap-2">
                 <button
                   onClick={() => setPortfolioMuted(!portfolioMuted)}
-                  className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/80 border border-white/20 text-white text-base sm:text-lg flex items-center justify-center hover:bg-black hover:scale-110 transition-all shadow-lg"
+                  className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/80 border border-white/20 text-white text-base sm:text-lg flex items-center justify-center hover:bg-black hover:scale-110 transition-all shadow-lg focus:outline-none"
+                  aria-label={portfolioMuted ? "Unmute portfolio video" : "Mute portfolio video"}
                   title={portfolioMuted ? "Unmute Portfolio" : "Mute Portfolio"}
                 >
                   {portfolioMuted ? "🔇" : "🔊"}
@@ -406,7 +441,7 @@ const VideoEditing = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mt-3">
               Professional video post-production
             </h2>
-            <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed mt-3 sm:mt-4">
+            <p className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed mt-3 sm:mt-4">
               Get professional video editing services that elevate your content, engage your audience, 
               and tell your story with cinematic quality.
             </p>
@@ -430,7 +465,7 @@ const VideoEditing = () => {
                 <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3 group-hover:text-[#193d84] transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                <p className="text-sm text-gray-700 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
                   {service.description}
                 </p>
                 <Link href={service.link} className="inline-flex items-center gap-2 mt-3 sm:mt-4 text-sm font-semibold text-[#193d84] hover:text-[#0b1220] transition-colors duration-300 group-hover:gap-3">
@@ -463,7 +498,7 @@ const VideoEditing = () => {
                 Cinematic quality<br/>that captures attention
               </h2>
               <div className="space-y-4 sm:space-y-5">
-                <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed max-w-lg mx-auto md:mx-0">
+                <p className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed max-w-lg mx-auto md:mx-0">
                   In a world where video content dominates, quality editing separates professionals from amateurs. We combine technical expertise with creative storytelling to produce videos that not only look stunning but also drive engagement, build trust, and convert viewers into customers.
                 </p>
               </div>
@@ -483,6 +518,7 @@ const VideoEditing = () => {
                   alt="Editing Expertise"
                   width={1200}
                   height={1200}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-auto object-contain" 
                 />
               </div>
@@ -512,7 +548,7 @@ const VideoEditing = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mt-4">
               Video Editing Pricing
             </h2>
-            <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto mt-3 sm:mt-4">
+            <p className="text-gray-700 text-base sm:text-lg max-w-2xl mx-auto mt-3 sm:mt-4">
               Choose the perfect video editing package for your content needs. All packages include professional editing and rapid delivery.
             </p>
           </div>
@@ -526,24 +562,24 @@ const VideoEditing = () => {
                   <span className="text-2xl sm:text-3xl">📹</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Basic Edit</h3>
-                <p className="text-gray-500 text-sm sm:text-base mb-4">For short-form content</p>
+                <p className="text-gray-600 text-sm sm:text-base mb-4">For short-form content</p>
                 <div className="mb-4 sm:mb-6">
                   <span className="text-4xl sm:text-5xl font-bold text-black">$99</span>
-                  <span className="text-gray-500 text-base sm:text-lg ml-1">/video</span>
+                  <span className="text-gray-600 text-base sm:text-lg ml-1">/video</span>
                 </div>
                 <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Up to 5 minutes raw footage</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Basic cuts &amp; transitions</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Audio syncing &amp; cleanup</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Basic color correction</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Background music</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Captions / subtitles</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">1 revision</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Delivery: 2-3 business days</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Up to 5 minutes raw footage</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Basic cuts &amp; transitions</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Audio syncing &amp; cleanup</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Basic color correction</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Background music</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Captions / subtitles</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">1 revision</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Delivery: 2-3 business days</span></li>
                 </ul>
-                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Final pricing may vary based on complexity.</div>
+                <div className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4 italic">* Final pricing may vary based on complexity.</div>
                 <Link href="/contact" className="w-full">
-                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base focus:outline-none">
                     GET STARTED
                   </button>
                 </Link>
@@ -560,25 +596,25 @@ const VideoEditing = () => {
                   <span className="text-2xl sm:text-3xl">🎬</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Pro Edit</h3>
-                <p className="text-gray-500 text-sm sm:text-base mb-4">For YouTube &amp; social media</p>
+                <p className="text-gray-600 text-sm sm:text-base mb-4">For YouTube &amp; social media</p>
                 <div className="mb-4 sm:mb-6">
                   <span className="text-4xl sm:text-5xl font-bold text-black">$199</span>
-                  <span className="text-gray-500 text-base sm:text-lg ml-1">/video</span>
+                  <span className="text-gray-600 text-base sm:text-lg ml-1">/video</span>
                 </div>
                 <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Up to 15 minutes final video</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Advanced cuts &amp; transitions</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Professional color correction</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Audio mixing &amp; cleanup</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Custom thumbnails</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Motion graphics</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Captions &amp; subtitles</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">2-3 revision rounds</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Delivery: 3-5 business days</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Up to 15 minutes final video</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Advanced cuts &amp; transitions</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Professional color correction</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Audio mixing &amp; cleanup</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Custom thumbnails</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Motion graphics</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Captions &amp; subtitles</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">2-3 revision rounds</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Delivery: 3-5 business days</span></li>
                 </ul>
-                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Final pricing may vary based on complexity.</div>
+                <div className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4 italic">* Final pricing may vary based on complexity.</div>
                 <Link href="/contact" className="w-full">
-                  <button className="w-full py-2.5 sm:py-3 rounded-full bg-[#193d84] text-white font-semibold hover:bg-[#0b1220] transition-all duration-300 shadow-md flex items-center justify-center gap-2 group text-sm sm:text-base">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full bg-[#193d84] text-white font-semibold hover:bg-[#0b1220] transition-all duration-300 shadow-md flex items-center justify-center gap-2 group text-sm sm:text-base focus:outline-none">
                     LEARN MORE 
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </button>
@@ -593,26 +629,26 @@ const VideoEditing = () => {
                   <span className="text-2xl sm:text-3xl">🎥</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Premium Edit</h3>
-                <p className="text-gray-500 text-sm sm:text-base mb-4">For professional &amp; high-end projects</p>
+                <p className="text-gray-600 text-sm sm:text-base mb-4">For professional &amp; high-end projects</p>
                 <div className="mb-4 sm:mb-6">
                   <span className="text-4xl sm:text-5xl font-bold text-black">$399</span>
-                  <span className="text-gray-500 text-base sm:text-lg ml-1">+</span>
+                  <span className="text-gray-600 text-base sm:text-lg ml-1">+</span>
                   <span className="text-gray-500 text-xs sm:text-sm block mt-1">scope-based pricing</span>
                 </div>
                 <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Long-form / advanced editing</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Advanced motion graphics</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Visual effects (VFX)</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Professional color grading</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Advanced sound design</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">2D / 3D animations</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Multi-camera editing</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Multiple revision rounds</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Dedicated editor</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Long-form / advanced editing</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Advanced motion graphics</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Visual effects (VFX)</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Professional color grading</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Advanced sound design</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">2D / 3D animations</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Multi-camera editing</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Multiple revision rounds</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Dedicated editor</span></li>
                 </ul>
-                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Final pricing may vary based on complexity.</div>
+                <div className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4 italic">* Final pricing may vary based on complexity.</div>
                 <Link href="/contact" className="w-full">
-                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base focus:outline-none">
                     CONTACT US
                   </button>
                 </Link>
@@ -622,13 +658,13 @@ const VideoEditing = () => {
           </div>
           
           <div className="text-center mt-8 sm:mt-12">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-500 text-sm">
               Need a custom video package? <Link href="/contact" className="text-[#193d84] font-semibold hover:underline">Book a consultation →</Link>
             </p>
           </div>
         </div>
       </motion.section>
-    </>
+    </main>
   )
 }
 

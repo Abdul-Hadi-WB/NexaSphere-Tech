@@ -153,7 +153,7 @@ const GraphicDesigning = () => {
   }
 
   return (
-    <>
+    <main className="bg-white min-h-screen overflow-x-hidden pt-20 sm:pt-24 lg:pt-28">
       {/* Global styles to hide scrollbars */}
       <style jsx global>{`
         .scrollbar-hide::-webkit-scrollbar {
@@ -193,15 +193,15 @@ const GraphicDesigning = () => {
               transition={{ duration: 0.6 }}
               className="flex flex-col space-y-4 sm:space-y-6 text-center lg:text-left"
             >
-              <p className="text-sm uppercase font-bold mt-16 sm:mt-20 lg:mt-24" style={{ color: '#193d84' }}>
+              <p className="text-sm uppercase font-bold tracking-wider text-[#193d84]">
                 Graphic Design
               </p>
               
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
                 Bring Your Brand Vision<br/>To Life With Stunning Design
-              </h2>
+              </h1>
               
-              <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              <p className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed max-w-lg mx-auto lg:mx-0">
                 From logos and brand identities to social media graphics and print materials, 
                 we create visually compelling designs that capture attention.
               </p>
@@ -235,7 +235,10 @@ const GraphicDesigning = () => {
 
               <div className="pt-4 sm:pt-6">
                 <Link href="/contact">
-                  <button className="group relative overflow-hidden bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-white/40">
+                  <button 
+                    className="group relative overflow-hidden bg-[#193d84] hover:bg-[#0b1220] text-white font-semibold text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 border border-white/40 focus:outline-none"
+                    aria-label="Start your graphic design project with NexaSphere Tech"
+                  >
                     <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent"></span>
                     <span className="relative z-10 flex items-center">
                       START YOUR PROJECT
@@ -258,7 +261,7 @@ const GraphicDesigning = () => {
                   <p className="text-sm text-black/60">
                     <span className="font-bold text-black">150+</span> Brands Designed
                   </p>
-                  <p className="text-xs text-gray-400">100+ Satisfied Clients</p>
+                  <p className="text-xs text-gray-500">100+ Satisfied Clients</p>
                 </div>
               </div>
             </motion.div>
@@ -357,7 +360,8 @@ const GraphicDesigning = () => {
               {/* Navigation Arrows */}
               <button
                 onClick={prevSlide}
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-black w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-10 hover:scale-110"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-black w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-10 hover:scale-110 focus:outline-none"
+                aria-label="Previous slide"
               >
                 <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -365,7 +369,8 @@ const GraphicDesigning = () => {
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-black w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-10 hover:scale-110"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-black w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-10 hover:scale-110 focus:outline-none"
+                aria-label="Next slide"
               >
                 <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -422,7 +427,7 @@ const GraphicDesigning = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mt-3">
               Creative design solutions
             </h2>
-            <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed mt-3 sm:mt-4">
+            <p className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed mt-3 sm:mt-4">
               Get professional graphic design services that elevate your brand, capture attention, and communicate your message with visual impact.
             </p>
           </motion.div>
@@ -445,7 +450,7 @@ const GraphicDesigning = () => {
                 <h3 className="text-lg sm:text-xl font-bold text-black mb-2 sm:mb-3 group-hover:text-[#193d84] transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                <p className="text-sm text-gray-700 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
                   {service.description}
                 </p>
                 <Link href={service.link} className="inline-flex items-center gap-2 mt-3 sm:mt-4 text-sm font-semibold text-[#193d84] hover:text-[#0b1220] transition-colors duration-300 group-hover:gap-3">
@@ -474,9 +479,10 @@ const GraphicDesigning = () => {
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
                 <Image
                   src="/images/Founder@.jpeg"
-                  alt="Ali Haider"
+                  alt="Ali Haider - Senior Graphic Designer"
                   width={96}
                   height={96}
+                  sizes="(max-width: 640px) 80px, 96px"
                   className="object-cover w-full h-full"
                 />
               </div>
@@ -487,6 +493,7 @@ const GraphicDesigning = () => {
                   <a 
                     href="tel:03001234567" 
                     className="inline-block bg-white text-[#193d84] text-xs font-bold px-3 py-1.5 rounded-full hover:bg-[#0b1220] hover:text-white transition duration-300 shadow-sm"
+                    aria-label="Call Ali Haider at 0300 1234567"
                   >
                     📞 0300 1234567
                   </a>
@@ -543,7 +550,7 @@ const GraphicDesigning = () => {
                 Visual storytelling<br/>that captures hearts
               </h2>
               <div className="space-y-4 sm:space-y-5">
-                <p className="text-base sm:text-lg md:text-xl font-medium text-gray-500 leading-relaxed max-w-lg mx-auto md:mx-0">
+                <p className="text-base sm:text-lg md:text-xl font-medium text-gray-700 leading-relaxed max-w-lg mx-auto md:mx-0">
                   In a world bombarded with content, exceptional design makes you unforgettable. We combine artistic creativity with strategic thinking to create visuals that communicate your brand message effectively.
                 </p>
               </div>
@@ -563,6 +570,7 @@ const GraphicDesigning = () => {
                   alt="Graphic Design Expertise"
                   width={1200}
                   height={1200}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-auto object-contain" 
                 />
               </div>
@@ -592,7 +600,7 @@ const GraphicDesigning = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mt-4">
               Graphic Designing Pricing
             </h2>
-            <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto mt-3 sm:mt-4">
+            <p className="text-gray-700 text-base sm:text-lg max-w-2xl mx-auto mt-3 sm:mt-4">
               Choose the perfect design package for your business needs. All plans include professional design and source files.
             </p>
           </div>
@@ -606,22 +614,22 @@ const GraphicDesigning = () => {
                   <span className="text-2xl sm:text-3xl">🎨</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Basic Design</h3>
-                <p className="text-gray-500 text-sm sm:text-base mb-4">For startups &amp; small businesses</p>
+                <p className="text-gray-600 text-sm sm:text-base mb-4">For startups &amp; small businesses</p>
                 <div className="mb-4 sm:mb-6">
                   <span className="text-4xl sm:text-5xl font-bold text-black">$99</span>
-                  <span className="text-gray-500 text-base sm:text-lg ml-1">/project</span>
+                  <span className="text-gray-600 text-base sm:text-lg ml-1">/project</span>
                 </div>
                 <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Primary logo design – 2 concepts</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Color palette</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Typography selection</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">High-resolution PNG &amp; JPG files</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Vector logo files – SVG / PDF</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">2 revision rounds</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Primary logo design – 2 concepts</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Color palette</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Typography selection</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">High-resolution PNG &amp; JPG files</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Vector logo files – SVG / PDF</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">2 revision rounds</span></li>
                 </ul>
-                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Custom projects quoted based on scope.</div>
+                <div className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4 italic">* Custom projects quoted based on scope.</div>
                 <Link href="/contact" className="w-full">
-                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base focus:outline-none">
                     GET STARTED
                   </button>
                 </Link>
@@ -638,24 +646,24 @@ const GraphicDesigning = () => {
                   <span className="text-2xl sm:text-3xl">✨</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Complete Brand Identity</h3>
-                <p className="text-gray-500 text-sm sm:text-base mb-4">For businesses wanting a complete professional identity</p>
+                <p className="text-gray-600 text-sm sm:text-base mb-4">For businesses wanting a complete professional identity</p>
                 <div className="mb-4 sm:mb-6">
                   <span className="text-4xl sm:text-5xl font-bold text-black">$249</span>
-                  <span className="text-gray-500 text-base sm:text-lg ml-1">/project</span>
+                  <span className="text-gray-600 text-base sm:text-lg ml-1">/project</span>
                 </div>
                 <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Primary + secondary logo concepts</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Complete brand color palette</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Typography system</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Brand style guide</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Business card + letterhead design</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Social media profile kit + templates</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Vector files + source files</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">4 revision rounds</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Primary + secondary logo concepts</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Complete brand color palette</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Typography system</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Brand style guide</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Business card + letterhead design</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Social media profile kit + templates</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Vector files + source files</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">4 revision rounds</span></li>
                 </ul>
-                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Custom projects quoted based on scope.</div>
+                <div className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4 italic">* Custom projects quoted based on scope.</div>
                 <Link href="/contact" className="w-full">
-                  <button className="w-full py-2.5 sm:py-3 rounded-full bg-[#193d84] text-white font-semibold hover:bg-[#0b1220] transition-all duration-300 shadow-md flex items-center justify-center gap-2 group text-sm sm:text-base">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full bg-[#193d84] text-white font-semibold hover:bg-[#0b1220] transition-all duration-300 shadow-md flex items-center justify-center gap-2 group text-sm sm:text-base focus:outline-none">
                     CHOOSE PLAN
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </button>
@@ -670,25 +678,25 @@ const GraphicDesigning = () => {
                   <span className="text-2xl sm:text-3xl">🚀</span>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">Custom Design</h3>
-                <p className="text-gray-500 text-sm sm:text-base mb-4">For advanced &amp; ongoing creative requirements</p>
+                <p className="text-gray-600 text-sm sm:text-base mb-4">For advanced &amp; ongoing creative requirements</p>
                 <div className="mb-4 sm:mb-6">
                   <span className="text-4xl sm:text-5xl font-bold text-black">$499</span>
-                  <span className="text-gray-500 text-base sm:text-lg ml-1">+</span>
+                  <span className="text-gray-600 text-base sm:text-lg ml-1">+</span>
                   <span className="text-gray-500 text-xs sm:text-sm block mt-1">scope-based pricing</span>
                 </div>
                 <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 flex-1 text-sm sm:text-base">
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Complete custom branding</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Product packaging &amp; label design</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Brochures, flyers &amp; posters</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Social media design packages</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Presentation / pitch deck design</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Custom illustrations</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Source files + dedicated designer</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-600">Ongoing monthly design support available</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Complete custom branding</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Product packaging &amp; label design</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Brochures, flyers &amp; posters</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Social media design packages</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Presentation / pitch deck design</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Custom illustrations</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Source files + dedicated designer</span></li>
+                  <li className="flex items-start gap-2"><span className="text-[#193d84] mt-0.5">✓</span><span className="text-gray-700">Ongoing monthly design support available</span></li>
                 </ul>
-                <div className="text-xs sm:text-sm text-gray-400 mb-3 sm:mb-4 italic">* Custom projects quoted based on scope.</div>
+                <div className="text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4 italic">* Custom projects quoted based on scope.</div>
                 <Link href="/contact" className="w-full">
-                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base">
+                  <button className="w-full py-2.5 sm:py-3 rounded-full border-2 border-[#193d84] text-black font-semibold hover:bg-[#193d84] hover:text-white transition-all duration-300 text-sm sm:text-base focus:outline-none">
                     CONTACT US
                   </button>
                 </Link>
@@ -698,13 +706,13 @@ const GraphicDesigning = () => {
           </div>
           
           <div className="text-center mt-8 sm:mt-12">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-500 text-sm">
               Need a custom plan? <Link href="/contact" className="text-[#193d84] font-semibold hover:underline">Book a consultation →</Link>
             </p>
           </div>
         </div>
       </motion.section>
-    </>
+    </main>
   )
 }
 
